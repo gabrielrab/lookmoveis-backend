@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
 import http from 'http';
-import requireDir from 'require-dir';
 import routes from './router';
 
 require('dotenv').config();
@@ -19,9 +18,7 @@ app.use(
   ),
 );
 
-require('./database/index');
-
-requireDir('./models');
+require('./database');
 
 app.use(express.json());
 app.use(bodyParser.json());
