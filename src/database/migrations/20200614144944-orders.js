@@ -28,7 +28,7 @@ module.exports = {
         allowNull: false,
       },
       invoice_type: {
-        type: DataTypes.ENUM(['card', 'check-payment', 'bank-slip']),
+        type: DataTypes.ENUM(['card', 'bank-slip']),
         allowNull: false,
         default: 'peding_approval',
       },
@@ -46,14 +46,6 @@ module.exports = {
       },
       client_id: {
         type: DataTypes.STRING,
-        allowNull: false,
-      },
-      user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      company_id: {
-        type: DataTypes.INTEGER,
         allowNull: false,
       },
       created_at: {

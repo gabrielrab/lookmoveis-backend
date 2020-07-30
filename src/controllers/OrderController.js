@@ -4,9 +4,9 @@ module.exports = {
   async store(req, res) {
     const user = await User.create({
       name: 'Gabriel',
-      email: 'rabelo72@gmail.com',
+      email: 'rabelogabriel72@gmail.com',
       phoneNumber: '37998637969',
-      username: 'gabriel',
+      username: 'gabriel2',
       password: '123',
       role: 'admin',
       companyId: 1,

@@ -11,7 +11,7 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      is_avaible: {
+      is_available: {
         type: DataTypes.BOOLEAN,
         default: true,
       },

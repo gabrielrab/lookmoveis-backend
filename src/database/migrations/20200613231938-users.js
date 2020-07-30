@@ -20,11 +20,6 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      username: {
-        type: DataTypes.STRING,
-        unique: true,
-        allowNull: false,
-      },
       password: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -42,13 +37,9 @@ module.exports = {
         type: DataTypes.BOOLEAN,
         default: true,
       },
-      comission_fee: {
-        type: DataTypes.DECIMAL(10, 2),
-        allowNull: true,
-      },
-      company_id: {
+      client_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        default: true,
       },
       created_at: {
         type: DataTypes.DATE,

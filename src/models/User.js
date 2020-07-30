@@ -33,11 +33,12 @@ class User extends Model {
             'vendor',
             'buyer',
           ]),
+          defaultValue: 'admin',
           allowNull: false,
         },
         active: {
           type: DataTypes.BOOLEAN,
-          default: true,
+          defaultValue: true,
         },
         comissionFee: {
           type: DataTypes.DECIMAL(10, 2),
