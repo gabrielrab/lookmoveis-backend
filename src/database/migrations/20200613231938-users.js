@@ -25,21 +25,21 @@ module.exports = {
         allowNull: false,
       },
       role: {
-        type: DataTypes.ENUM([
-          'superadmin',
-          'admin',
-          'vendor',
-          'buyer',
-        ]),
+        type: DataTypes.ENUM(['superadmin', 'admin', 'buyer']),
         allowNull: false,
+        defaultValue: 'buyer',
       },
       active: {
         type: DataTypes.BOOLEAN,
-        default: true,
+        defaultValue: true,
       },
       client_id: {
         type: DataTypes.INTEGER,
-        default: true,
+        allowNull: true,
+        references: {
+          model: 'clients',
+          key: 'id',
+        },
       },
       created_at: {
         type: DataTypes.DATE,

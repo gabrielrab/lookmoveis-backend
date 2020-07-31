@@ -47,10 +47,6 @@ module.exports = {
         type: DataTypes.BOOLEAN,
         default: true,
       },
-      company_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
       created_at: {
         type: DataTypes.DATE,
         allowNull: false,

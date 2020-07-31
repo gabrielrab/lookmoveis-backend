@@ -28,7 +28,7 @@ module.exports = {
           'outher',
         ]),
         allowNull: false,
-        default: 'outher',
+        defaultValue: 'outher',
       },
       object_id: {
         type: DataTypes.INTEGER,

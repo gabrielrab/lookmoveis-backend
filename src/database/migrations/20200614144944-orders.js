@@ -17,7 +17,7 @@ module.exports = {
           'done',
         ]),
         allowNull: false,
-        default: 'peding-approval',
+        defaultValue: 'peding-approval',
       },
       nf_number: {
         type: DataTypes.INTEGER,
@@ -30,7 +30,7 @@ module.exports = {
       invoice_type: {
         type: DataTypes.ENUM(['card', 'bank-slip']),
         allowNull: false,
-        default: 'peding_approval',
+        defaultValue: 'card',
       },
       payment_terms: {
         type: DataTypes.INTEGER,
