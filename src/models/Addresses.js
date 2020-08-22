@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 
-class User extends Model {
+class Addresses extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -8,27 +8,33 @@ class User extends Model {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        email: {
-          type: DataTypes.STRING,
-          unique: true,
-          allowNull: false,
-        },
-        phoneNumber: {
+        streetName: {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        password: {
+        streetNumber: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+        },
+        streetAdd: {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        role: {
-          type: DataTypes.ENUM(['superadmin', 'admin', 'buyer']),
-          defaultValue: 'buyer',
+        neighborhood: {
+          type: DataTypes.STRING,
           allowNull: false,
         },
-        active: {
-          type: DataTypes.BOOLEAN,
-          defaultValue: true,
+        zipcode: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        city: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        state: {
+          type: DataTypes.STRING,
+          allowNull: false,
         },
         clientId: {
           type: DataTypes.INTEGER,
@@ -36,14 +42,14 @@ class User extends Model {
             model: 'Clients',
             key: 'id',
           },
-          allowNull: true,
+          allowNull: false,
         },
       },
       {
         sequelize,
-        tableName: 'users',
+        tableName: 'addresses',
       },
     );
   }
 }
-module.exports = User;
+module.exports = Addresses;

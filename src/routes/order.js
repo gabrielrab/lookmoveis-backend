@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
-const router = Router();
-
 import OrderController from '../controllers/OrderController';
+
+const router = Router();
 
 router.post('/order', OrderController.store);
 
