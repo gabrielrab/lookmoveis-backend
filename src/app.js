@@ -4,7 +4,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import http from 'http';
 import routes from './router';
-import errorHandler from './middleware/errorHandler';
+import { errorHandler } from './middlewares';
 
 require('dotenv').config();
 
