@@ -33,6 +33,10 @@ class OrderLines extends Model {
         },
         orderId: {
           type: DataTypes.INTEGER,
+          references: {
+            model: 'Orders',
+            key: 'id',
+          },
           allowNull: false,
         },
       },

@@ -37,7 +37,9 @@ module.exports = {
         type: DataTypes.INTEGER,
         allowNull: true,
         references: {
-          model: 'clients',
+          model: {
+            tableName: 'clients',
+          },
           key: 'id',
         },
       },

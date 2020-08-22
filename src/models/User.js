@@ -32,6 +32,10 @@ class User extends Model {
         },
         clientId: {
           type: DataTypes.INTEGER,
+          references: {
+            model: 'Clients',
+            key: 'id',
+          },
           allowNull: true,
         },
       },

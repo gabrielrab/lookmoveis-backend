@@ -14,6 +14,10 @@ class ProductAttrs extends Model {
         },
         productId: {
           type: DataTypes.INTEGER,
+          references: {
+            model: 'Products',
+            key: 'id',
+          },
           allowNull: false,
         },
       },
