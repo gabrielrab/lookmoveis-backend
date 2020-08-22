@@ -21,7 +21,7 @@ module.exports = {
       },
       nf_number: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
       total: {
         type: DataTypes.DECIMAL(10, 2),
@@ -38,7 +38,7 @@ module.exports = {
       },
       note: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
       },
       address_id: {
         type: DataTypes.INTEGER,

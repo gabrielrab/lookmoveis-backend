@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 
-class User extends Model {
+class Addresses extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -43,9 +43,9 @@ class User extends Model {
       },
       {
         sequelize,
-        tableName: 'clients',
+        tableName: 'addresses',
       },
     );
   }
 }
-module.exports = User;
+module.exports = Addresses;

@@ -1,36 +1,27 @@
 import { Model, DataTypes } from 'sequelize';
 
-class Clients extends Model {
+class ProductAttrs extends Model {
   static init(sequelize) {
     super.init(
       {
-        firstName: {
+        name: {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        lastName: {
+        value: {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        doc: {
+        productId: {
           type: DataTypes.INTEGER,
-          allowNull: false,
-        },
-        email: {
-          type: DataTypes.STRING,
-          unique: true,
-          allowNull: false,
-        },
-        phoneNumber: {
-          type: DataTypes.STRING,
           allowNull: false,
         },
       },
       {
         sequelize,
-        tableName: 'clients',
+        tableName: 'products_attrs',
       },
     );
   }
 }
-module.exports = Clients;
+module.exports = ProductAttrs;
