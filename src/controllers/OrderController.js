@@ -1,7 +1,7 @@
-import User from '../models/User';
+// import User from '../models/User';
 
 module.exports = {
   async store(req, res) {
-    throw new Error('Something broke yet again! 😱');
+    return res.send({ message: 'Passou na validação' });
   },
 };
