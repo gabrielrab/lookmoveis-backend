@@ -28,7 +28,7 @@ module.exports = {
           'outher',
         ]),
         allowNull: false,
-        default: 'outher',
+        defaultValue: 'outher',
       },
       object_id: {
         type: DataTypes.INTEGER,
@@ -36,6 +36,12 @@ module.exports = {
       },
       order_id: {
         type: DataTypes.INTEGER,
+        references: {
+          model: {
+            tableName: 'orders',
+          },
+          key: 'id',
+        },
         allowNull: false,
       },
       created_at: {

@@ -20,35 +20,28 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
       password: {
         type: DataTypes.STRING,
-        unique: true,
         allowNull: false,
       },
       role: {
-        type: DataTypes.ENUM([
-          'superadmin',
-          'admin',
-          'vendor',
-          'buyer',
-        ]),
+        type: DataTypes.ENUM(['superadmin', 'admin', 'buyer']),
         allowNull: false,
+        defaultValue: 'buyer',
       },
       active: {
         type: DataTypes.BOOLEAN,
-        default: true,
+        defaultValue: true,
       },
-      comission_fee: {
-        type: DataTypes.DECIMAL(10, 2),
-        allowNull: true,
-      },
-      company_id: {
+      client_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
+        references: {
+          model: {
+            tableName: 'clients',
+          },
+          key: 'id',
+        },
       },
       created_at: {
         type: DataTypes.DATE,

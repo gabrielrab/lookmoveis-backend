@@ -5,7 +5,7 @@ const allRoutes = require('./routes/index');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-  res.send('Welcome to Ecommerce api');
+  res.send('Farmavida API');
 });
 
 Object.keys(allRoutes)

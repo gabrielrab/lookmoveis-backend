@@ -17,20 +17,20 @@ module.exports = {
           'done',
         ]),
         allowNull: false,
-        default: 'peding-approval',
+        defaultValue: 'peding-approval',
       },
       nf_number: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       },
       total: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
       },
       invoice_type: {
-        type: DataTypes.ENUM(['card', 'check-payment', 'bank-slip']),
+        type: DataTypes.ENUM(['card', 'bank-slip']),
         allowNull: false,
-        default: 'peding_approval',
+        defaultValue: 'card',
       },
       payment_terms: {
         type: DataTypes.INTEGER,
@@ -38,22 +38,26 @@ module.exports = {
       },
       note: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
       },
       address_id: {
         type: DataTypes.INTEGER,
+        references: {
+          model: {
+            tableName: 'addresses',
+          },
+          key: 'id',
+        },
         allowNull: false,
       },
       client_id: {
         type: DataTypes.STRING,
-        allowNull: false,
-      },
-      user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      company_id: {
-        type: DataTypes.INTEGER,
+        references: {
+          model: {
+            tableName: 'clients',
+          },
+          key: 'id',
+        },
         allowNull: false,
       },
       created_at: {

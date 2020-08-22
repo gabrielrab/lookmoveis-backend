@@ -15,6 +15,10 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      doc: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       email: {
         type: DataTypes.STRING,
         unique: true,

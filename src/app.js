@@ -18,7 +18,7 @@ app.use(
   ),
 );
 
-require('./database/index');
+require('./database');
 
 app.use(express.json());
 app.use(bodyParser.json());

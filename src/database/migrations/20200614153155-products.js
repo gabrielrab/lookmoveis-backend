@@ -11,7 +11,7 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      is_avaible: {
+      is_available: {
         type: DataTypes.BOOLEAN,
         default: true,
       },
@@ -46,10 +46,6 @@ module.exports = {
       stock: {
         type: DataTypes.BOOLEAN,
         default: true,
-      },
-      company_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
       },
       created_at: {
         type: DataTypes.DATE,
