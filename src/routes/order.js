@@ -1,14 +1,14 @@
 import { Router } from 'express';
 import { wrap, validator } from '../middlewares';
 import { order as validation } from '../validations';
-import OrderController from '../controllers/OrderController';
+import ClientsController from '../controllers/ClientsController';
 
 const router = Router();
 
 router.post(
   '/order',
   validator(validation.store),
-  wrap(OrderController.store),
+  wrap(ClientsController.store),
 );
 
 module.exports = router;
