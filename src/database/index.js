@@ -1,10 +1,10 @@
 import Sequelize from 'sequelize';
 import dbConfig from '../config/database';
 
-import User from '../models/Users';
+import Models from '../models';
 
 const connection = new Sequelize(dbConfig);
 
-User.init(connection);
+Object.keys(Models).map((model) => Models[model].init(connection));
 
 module.exports = connection;

@@ -1,9 +1,5 @@
 import repository from '../factories/Repository';
-import Users from '../models/Users';
-
-// importar (require-all) todos os models
-// no arquivo de database, importar todos os models
-// criar alias dos caminhos
+import { Users } from '../models';
 
 module.exports = {
   async list(req, res) {
