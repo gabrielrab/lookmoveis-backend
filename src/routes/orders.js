@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { wrap, validator } from '../middlewares';
 import { order as validation } from '../validations';
-import ClientsController from '../controllers/ClientsController';
+import { ClientsController } from '../controllers';
 
 const router = Router();
 
