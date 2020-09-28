@@ -16,6 +16,7 @@ const Repository = (model) => ({
   async list(args) {
     const entities = await model.findAll({
       where: args || {},
+      include: { association: 'attributes' },
     });
     if (!entities) {
       throw new NotFoundError();

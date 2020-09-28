@@ -14,10 +14,6 @@ class ProductAttrs extends Model {
         },
         productId: {
           type: DataTypes.INTEGER,
-          references: {
-            model: 'Products',
-            key: 'id',
-          },
           allowNull: false,
         },
       },
@@ -26,6 +22,13 @@ class ProductAttrs extends Model {
         tableName: 'products_attrs',
       },
     );
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Products, {
+      foreignKey: 'productId',
+      as: 'product',
+    });
   }
 }
 module.exports = ProductAttrs;

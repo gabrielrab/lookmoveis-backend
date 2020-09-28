@@ -51,5 +51,13 @@ class Products extends Model {
       },
     );
   }
+
+  static associate(models) {
+    this.hasMany(models.ProductAttrs, {
+      foreignKey: 'productId',
+      as: 'attributes',
+    });
+  }
 }
+
 module.exports = Products;
