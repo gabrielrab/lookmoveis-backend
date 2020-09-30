@@ -6,7 +6,7 @@ const Repository = (model, listingQuery) => ({
       where: {
         id,
       },
-      include: listingQuery.associations || [],
+      include: (listingQuery && listingQuery.associations) || [],
     });
     if (!entity) {
       throw new NotFoundError();
@@ -17,7 +17,7 @@ const Repository = (model, listingQuery) => ({
   async list(args) {
     const entities = await model.findAll({
       where: args || {},
-      include: listingQuery.associations || [],
+      include: (listingQuery && listingQuery.associations) || [],
     });
     if (!entities) {
       throw new NotFoundError();

@@ -51,5 +51,7 @@ class Addresses extends Model {
       },
     );
   }
+
+  static associate() {}
 }
 module.exports = Addresses;

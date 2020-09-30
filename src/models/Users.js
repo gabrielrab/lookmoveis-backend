@@ -45,5 +45,7 @@ class User extends Model {
       },
     );
   }
+
+  static associate() {}
 }
 module.exports = User;

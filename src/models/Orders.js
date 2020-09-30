@@ -60,5 +60,7 @@ class Orders extends Model {
       },
     );
   }
+
+  static associate() {}
 }
 module.exports = Orders;

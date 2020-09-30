@@ -46,5 +46,7 @@ class OrderLines extends Model {
       },
     );
   }
+
+  static associate() {}
 }
 module.exports = OrderLines;
