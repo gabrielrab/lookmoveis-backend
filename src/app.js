@@ -4,6 +4,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import http from 'http';
 import routes from './router';
+import { errorHandler } from './middlewares';
 
 require('dotenv').config();
 
@@ -30,5 +31,5 @@ app.use((req, res, next) => {
 });
 
 app.use('/', routes);
-
+app.use(errorHandler);
 module.exports = { app, server };

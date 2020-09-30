@@ -32,5 +32,7 @@ class Clients extends Model {
       },
     );
   }
+
+  static associate() {}
 }
 module.exports = Clients;
