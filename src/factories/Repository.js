@@ -1,11 +1,12 @@
 import { NotFoundError, ValidationError } from '../utils/errors';
 
-const Repository = (model) => ({
+const Repository = (model, listingQuery) => ({
   async getById(id) {
     const entity = await model.findOne({
       where: {
         id,
       },
+      include: listingQuery.associations || [],
     });
     if (!entity) {
       throw new NotFoundError();
@@ -16,7 +17,7 @@ const Repository = (model) => ({
   async list(args) {
     const entities = await model.findAll({
       where: args || {},
-      include: { association: 'attributes' },
+      include: listingQuery.associations || [],
     });
     if (!entities) {
       throw new NotFoundError();

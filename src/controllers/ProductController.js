@@ -1,14 +1,22 @@
 import repository from '../factories/Repository';
 import { Products } from '../models';
 
+const ListingQuery = {
+  associations: [{ association: 'attributes' }],
+};
+
 module.exports = {
   async list(req, res) {
-    const data = await repository(Products).list(req.query);
+    const data = await repository(Products, ListingQuery).list(
+      req.query,
+    );
     return res.send(data);
   },
 
   async getById(req, res) {
-    const data = await repository(Products).getById(req.params.id);
+    const data = await repository(Products, ListingQuery).getById(
+      req.params.id,
+    );
     return res.send(data);
   },
 
