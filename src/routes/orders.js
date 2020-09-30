@@ -7,7 +7,7 @@ const router = Router();
 
 router.post(
   '/order',
-  validator(validation.store),
+  // validator(validation.store),
   wrap(ClientsController.store),
 );
 

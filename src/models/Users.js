@@ -1,4 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
+import bcrypt from 'bcrypt';
 
 class User extends Model {
   static init(sequelize) {
@@ -44,6 +45,11 @@ class User extends Model {
         tableName: 'users',
       },
     );
+    super.beforeSave(async (user) => {
+      if (user.changed('password')) {
+        user.password = await bcrypt.hash(user.password, 10);
+      }
+    });
   }
 
   static associate() {}
