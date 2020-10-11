@@ -1,0 +1,21 @@
+version: '3.3'
+volumes:
+  data:
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_DB=farmavida
+      - POSTGRES_USER=farmavida
+      - POSTGRES_PASSWORD=farmavida
+    volumes:
+      - data:/var/lib/postgres
+
+  redis:
+    image: redis
+    command: redis-server --requirepass farmavida
+    ports:
+      - '6379:6379'
