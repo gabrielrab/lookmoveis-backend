@@ -36,12 +36,6 @@ module.exports = {
       },
       order_id: {
         type: DataTypes.INTEGER,
-        references: {
-          model: {
-            tableName: 'orders',
-          },
-          key: 'id',
-        },
         allowNull: false,
       },
       created_at: {

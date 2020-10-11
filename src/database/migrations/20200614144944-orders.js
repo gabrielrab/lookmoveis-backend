@@ -52,12 +52,6 @@ module.exports = {
       },
       client_id: {
         type: DataTypes.STRING,
-        references: {
-          model: {
-            tableName: 'clients',
-          },
-          key: 'id',
-        },
         allowNull: false,
       },
       created_at: {

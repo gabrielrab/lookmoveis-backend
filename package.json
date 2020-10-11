@@ -8,7 +8,8 @@
     "start": "sucrase-node ./bin/server.js",
     "dev": "npm-run-all -p dev:*",
     "dev:server": "nodemon ./bin/server.js",
-    "dev:queue": "nodemon src/queue.js"
+    "dev:queue": "nodemon src/queue.js",
+    "build:migrations": "yarn sequelize db:migrate"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",

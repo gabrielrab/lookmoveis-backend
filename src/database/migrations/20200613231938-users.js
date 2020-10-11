@@ -36,12 +36,6 @@ module.exports = {
       client_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        references: {
-          model: {
-            tableName: 'clients',
-          },
-          key: 'id',
-        },
       },
       created_at: {
         type: DataTypes.DATE,
