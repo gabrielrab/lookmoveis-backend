@@ -38,10 +38,6 @@ class Addresses extends Model {
         },
         clientId: {
           type: DataTypes.INTEGER,
-          references: {
-            model: 'Clients',
-            key: 'id',
-          },
           allowNull: false,
         },
       },
