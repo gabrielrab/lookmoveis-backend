@@ -31,7 +31,7 @@ const Repository = (model, listingQuery) => ({
       await entity.validate();
       return await entity.save();
     } catch (error) {
-      throw new ValidationError(error.errors.map((e) => e.message));
+      throw new ValidationError(error);
     }
   },
 

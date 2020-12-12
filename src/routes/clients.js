@@ -12,7 +12,11 @@ router.post(
   validator(validation.store),
   wrap(ClientController.store),
 );
-router.put('/clients/:id', wrap(ClientController.update));
+router.put(
+  '/clients/:id',
+  validator(validation.update),
+  wrap(ClientController.update),
+);
 router.delete('/clients/:id', wrap(ClientController.destroy));
 
 module.exports = router;
