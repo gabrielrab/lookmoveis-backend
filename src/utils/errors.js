@@ -28,7 +28,10 @@ function ForbiddenError(message) {
 ForbiddenError.prototype = Object.create(Error.prototype);
 ForbiddenError.prototype.constructor = ForbiddenError;
 
-function ValidationError(message) {
+function ValidationError(error) {
+  const message = error.errors
+    ? error.errors.map((e) => e.message)
+    : error;
   this.name = 'ValidationError';
   this.statusCode = 422;
   this.message = message || 'Erro de validação';
