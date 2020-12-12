@@ -9,7 +9,13 @@
     "dev": "npm-run-all -p dev:*",
     "dev:server": "nodemon ./bin/server.js",
     "dev:queue": "nodemon src/queue.js",
-    "migration:build": "yarn sequelize db:migrate"
+    "migration:build": "yarn sequelize db:migrate",
+    "lint": "yarn eslint --fix ."
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -30,11 +36,14 @@
     "sucrase": "^3.14.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.3.5",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
     "sequelize-cli": "^5.5.1"
