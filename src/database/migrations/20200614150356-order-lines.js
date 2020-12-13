@@ -19,7 +19,7 @@ module.exports = {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
       },
-      invoice_type: {
+      type: {
         type: DataTypes.ENUM([
           'product',
           'shipping-fee',

@@ -16,7 +16,7 @@ class OrderLines extends Model {
           type: DataTypes.DECIMAL(10, 2),
           allowNull: false,
         },
-        invoiceType: {
+        type: {
           type: DataTypes.ENUM([
             'product',
             'shipping-fee',
