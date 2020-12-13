@@ -1,32 +1,30 @@
 import repository from '../factories/Repository';
-import { Clients } from '../models';
+import { Addresses as Address } from '../models';
 
 const ListingQuery = {
-  associations: [{ association: 'addresses' }],
+  associations: [{ association: 'client' }],
 };
 
 module.exports = {
   async list(req, res) {
-    const data = await repository(Clients, ListingQuery).list(
+    const data = await repository(Address, ListingQuery).list(
       req.query,
     );
     return res.send(data);
   },
 
   async getById(req, res) {
-    const data = await repository(Clients, ListingQuery).getById(
-      req.params.id,
-    );
+    const data = await repository(Address).getById(req.params.id);
     return res.send(data);
   },
 
   async store(req, res) {
-    const data = await repository(Clients).store(req.body);
+    const data = await repository(Address).store(req.body);
     return res.send(data);
   },
 
   async update(req, res) {
-    const data = await repository(Clients).update(
+    const data = await repository(Address).update(
       req.params.id,
       req.body,
     );
@@ -34,7 +32,7 @@ module.exports = {
   },
 
   async destroy(req, res) {
-    await repository(Clients).destroy(req.params.id);
+    await repository(Address).destroy(req.params.id);
     return res.sendStatus(204);
   },
 };

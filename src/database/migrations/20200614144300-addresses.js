@@ -21,7 +21,7 @@ module.exports = {
       },
       street_add: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       neighborhood: {
         type: DataTypes.STRING,
@@ -40,7 +40,7 @@ module.exports = {
         allowNull: false,
       },
       client_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       created_at: {

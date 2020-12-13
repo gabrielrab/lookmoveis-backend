@@ -33,6 +33,11 @@ class Clients extends Model {
     );
   }
 
-  static associate() {}
+  static associate(models) {
+    this.hasMany(models.Addresses, {
+      foreignKey: 'clientId',
+      as: 'addresses',
+    });
+  }
 }
 module.exports = Clients;

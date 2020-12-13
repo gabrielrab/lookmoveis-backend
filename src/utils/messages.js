@@ -6,5 +6,7 @@ module.exports = {
     mustBeExistis: 'O valor enviado, não foi encontrado',
     invalidPhoneNumber:
       'Número de telefone inválido. Deve-se estar no formato: (00) 90000-0000',
+    invalidZipCode:
+      'CEP inválido. Deve-se estar no formato: 00000-000',
   },
 };
