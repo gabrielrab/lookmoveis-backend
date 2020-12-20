@@ -5,6 +5,7 @@ import {
   OrderLines as OrderLine,
   Products as Product,
 } from '../models';
+import Queue from '../lib/Queue';
 
 module.exports = {
   async list(req, res) {
@@ -61,6 +62,10 @@ module.exports = {
             ),
         ),
       );
+      await Queue.add('NewOrderJob', {
+        ...order.toJSON(),
+        products: orderLines,
+      });
       await transaction.commit();
       return res.send({
         ...order.toJSON(),

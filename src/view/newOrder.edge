@@ -1,0 +1,11 @@
+<h1>Nova solicitação de pedido feita!</h1>
+</br>
+<p>Foi realizado um novo pedido (#{{order.id}}) no nosso site, detalhes:</p>
+
+<p><b>Produtos:</b></p>
+<ul>
+    @each(products in product)
+        <li> {{ product.description }} </li>
+    @endeach
+</ul>
+
