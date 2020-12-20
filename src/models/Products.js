@@ -44,6 +44,10 @@ class Products extends Model {
           type: DataTypes.BOOLEAN,
           defaultValue: true,
         },
+        categoryId: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+        },
       },
       {
         sequelize,
@@ -56,6 +60,10 @@ class Products extends Model {
     this.hasMany(models.ProductAttrs, {
       foreignKey: 'productId',
       as: 'attributes',
+    });
+    this.belongsTo(models.Categories, {
+      foreignKey: 'id',
+      as: 'category',
     });
   }
 }

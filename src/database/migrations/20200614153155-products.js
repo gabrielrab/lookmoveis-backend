@@ -47,6 +47,10 @@ module.exports = {
         type: DataTypes.BOOLEAN,
         default: true,
       },
+      category_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       created_at: {
         type: DataTypes.DATE,
         allowNull: false,
