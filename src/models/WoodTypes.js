@@ -16,6 +16,13 @@ class WoodTypes extends Model {
     );
   }
 
-  static associate() {}
+  static associate(models) {
+    this.belongsToMany(models.WoodTypes, {
+      as: 'products',
+      through: { model: models.ProductWoodTypes, unique: false },
+      foreignKey: 'woodTypeId',
+      constraints: false,
+    });
+  }
 }
 module.exports = WoodTypes;

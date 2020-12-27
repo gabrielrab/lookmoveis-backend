@@ -5,6 +5,7 @@ const ListingQuery = {
   associations: [
     { association: 'attributes' },
     { association: 'category' },
+    { association: 'woodTypes' },
   ],
 };
 

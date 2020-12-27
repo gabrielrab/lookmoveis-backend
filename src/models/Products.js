@@ -65,6 +65,12 @@ class Products extends Model {
       foreignKey: 'id',
       as: 'category',
     });
+    this.belongsToMany(models.WoodTypes, {
+      as: 'woodTypes',
+      through: { model: models.ProductWoodTypes, unique: false },
+      foreignKey: 'productId',
+      constraints: false,
+    });
   }
 }
 
