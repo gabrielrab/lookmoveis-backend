@@ -37,6 +37,19 @@ class Images extends Model {
     );
   }
 
-  static associate() {}
+  static associate(models) {
+    this.belongsTo(models.Products, {
+      foreignKey: 'objectId',
+      as: 'products',
+    });
+    this.belongsTo(models.WoodTypes, {
+      foreignKey: 'objectId',
+      as: 'woodTypes',
+    });
+    this.belongsTo(models.Categories, {
+      foreignKey: 'objectId',
+      as: 'categories',
+    });
+  }
 }
 module.exports = Images;

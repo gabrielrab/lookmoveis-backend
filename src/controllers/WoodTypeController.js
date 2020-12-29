@@ -1,14 +1,28 @@
 import repository from '../factories/Repository';
 import { WoodTypes } from '../models';
 
+const ListingQuery = {
+  associations: [
+    {
+      association: 'thumb',
+      where: { type: 'wood-type' },
+      required: false,
+    },
+  ],
+};
+
 module.exports = {
   async list(req, res) {
-    const data = await repository(WoodTypes).list(req.query);
+    const data = await repository(WoodTypes, ListingQuery).list(
+      req.query,
+    );
     return res.send(data);
   },
 
   async getById(req, res) {
-    const data = await repository(WoodTypes).getById(req.params.id);
+    const data = await repository(WoodTypes, ListingQuery).getById(
+      req.params.id,
+    );
     return res.send(data);
   },
 

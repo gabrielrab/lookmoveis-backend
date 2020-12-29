@@ -6,6 +6,16 @@ const ListingQuery = {
     { association: 'attributes' },
     { association: 'category' },
     { association: 'woodTypes' },
+    {
+      association: 'images',
+      where: { type: 'product' },
+      required: false,
+    },
+    {
+      association: 'imagesDecorated',
+      where: { type: 'product-decorated' },
+      required: false,
+    },
   ],
 };
 

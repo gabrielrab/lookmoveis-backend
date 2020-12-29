@@ -71,6 +71,14 @@ class Products extends Model {
       foreignKey: 'productId',
       constraints: false,
     });
+    this.hasMany(models.Images, {
+      foreignKey: 'objectId',
+      as: 'images',
+    });
+    this.hasMany(models.Images, {
+      foreignKey: 'objectId',
+      as: 'imagesDecorated',
+    });
   }
 }
 

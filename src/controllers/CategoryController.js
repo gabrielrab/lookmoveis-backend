@@ -1,14 +1,28 @@
 import repository from '../factories/Repository';
 import { Categories } from '../models';
 
+const ListingQuery = {
+  associations: [
+    {
+      association: 'thumb',
+      where: { type: 'category' },
+      required: false,
+    },
+  ],
+};
+
 module.exports = {
   async list(req, res) {
-    const data = await repository(Categories).list(req.query);
+    const data = await repository(Categories, ListingQuery).list(
+      req.query,
+    );
     return res.send(data);
   },
 
   async getById(req, res) {
-    const data = await repository(Categories).getById(req.params.id);
+    const data = await repository(Categories, ListingQuery).getById(
+      req.params.id,
+    );
     return res.send(data);
   },
 

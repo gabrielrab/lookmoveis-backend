@@ -23,6 +23,10 @@ class WoodTypes extends Model {
       foreignKey: 'woodTypeId',
       constraints: false,
     });
+    this.hasOne(models.Images, {
+      foreignKey: 'objectId',
+      as: 'thumb',
+    });
   }
 }
 module.exports = WoodTypes;

@@ -16,6 +16,11 @@ class Categories extends Model {
     );
   }
 
-  static associate() {}
+  static associate(models) {
+    this.hasOne(models.Images, {
+      foreignKey: 'objectId',
+      as: 'thumb',
+    });
+  }
 }
 module.exports = Categories;
