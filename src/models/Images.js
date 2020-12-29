@@ -24,6 +24,10 @@ class Images extends Model {
           defaultValue: 'product',
           allowNull: false,
         },
+        objectId: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+        },
       },
       {
         sequelize,

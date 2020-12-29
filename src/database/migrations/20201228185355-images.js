@@ -21,7 +21,10 @@ module.exports = {
         defaultValue: 'product',
         allowNull: false,
       },
-      // adicionar o object id
+      object_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       created_at: {
         type: DataTypes.DATE,
         allowNull: false,
