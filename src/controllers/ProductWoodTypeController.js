@@ -20,7 +20,6 @@ module.exports = {
       productId: req.params.id,
       woodTypeId: req.params.woodTypeId,
     });
-    console.log('[data]', data);
     await repository(ProductWoodType).destroy(data[0].id);
     return res.sendStatus(204);
   },

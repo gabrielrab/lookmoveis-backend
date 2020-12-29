@@ -8,5 +8,6 @@ module.exports = {
       'Número de telefone inválido. Deve-se estar no formato: (00) 90000-0000',
     invalidZipCode:
       'CEP inválido. Deve-se estar no formato: 00000-000',
+    isNotImageType: 'Tipo de imagem inválido.',
   },
 };

@@ -12,6 +12,6 @@ router.post(
   validator(validation.store),
   wrap(OrderController.store),
 );
-router.delete('/order', wrap(OrderController.destroy));
+router.delete('/order/:id', wrap(OrderController.destroy));
 
 module.exports = router;
