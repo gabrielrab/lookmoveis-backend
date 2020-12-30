@@ -1,0 +1,17 @@
+<h1>Seu pedido foi realizado com sucesso!</h1>
+<h2>Olá <b>{{client.firstName}}, recebemos seu pedido:</b></h2>
+
+<h4>Código do pedido: #{{order.id}}<h4>
+<h4><b>Produto(s):</b></h4>
+<ul>
+    @each(product in products)
+        <li>{{ product.description }} </li>
+    @endeach
+</ul>
+
+<h4>Endereço para entrega:</h4>
+<p>{{address.streetName}}, número {{address.streetNumber}} - Bairro {{address.neighborhood}}, {{address.city}}/{{address.state}} CEP: {{address.zipcode}}</p>
+
+<h4>Próximos passos:</h4>
+<p>A nossa equipe irá entrar em contato com você para combinar mais detalhes do seu pedido e retirar possíveis dúvida e também para combinar o valor e prazo para o frete.</p>
+
