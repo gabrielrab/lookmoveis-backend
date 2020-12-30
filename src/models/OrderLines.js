@@ -12,6 +12,10 @@ class OrderLines extends Model {
           type: DataTypes.DECIMAL(10, 2),
           allowNull: false,
         },
+        qty: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+        },
         total: {
           type: DataTypes.DECIMAL(10, 2),
           allowNull: false,
