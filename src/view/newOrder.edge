@@ -1,11 +1,22 @@
 <h1>Nova solicitação de pedido feita!</h1>
-</br>
-<p>Foi realizado um novo pedido (#{{order.id}}) no nosso site, detalhes:</p>
+<p>Foi realizado um novo pedido (#{{order.id}}) no valor de {{order.total}} no nosso site, detalhes:</p>
 
-<p><b>Produtos:</b></p>
+<h3>Criado por: <b>{{client.firstName}}</b></h3>
+
+    <p>Nome Completo: {{client.firstName}} {{client.lastName}}</p>
+    <p>Telefone: {{client.phoneNumber}}</p>
+    <p>Email: {{client.email}}</p>
+    </hr>
+    <p>Endereço para entrega:</p>
+    <p>{{address.streetName}}, número {{address.streetNumber}} - Bairro {{address.neighborhood}}, {{address.city}}/{{address.state}} CEP: {{address.zipcode}}</p>
+
+
+<h3><b>Produto(s):</b></h3>
 <ul>
-    @each(products in product)
-        <li> {{ product.description }} </li>
+    @each(product in products)
+        <li>{{ product.description }} </li>
     @endeach
 </ul>
+
+<p>Acesse a plataforma para visualizar mais detalhes.</p>
 

@@ -4,6 +4,8 @@ import {
   Orders as Order,
   OrderLines as OrderLine,
   Products as Product,
+  Clients as Client,
+  Addresses as Address,
 } from '../models';
 import Queue from '../lib/Queue';
 
@@ -22,6 +24,11 @@ module.exports = {
     const transaction = await Order.sequelize.transaction();
     try {
       const { products, ...restOrderData } = req.body;
+
+      const [client, address] = await Promise.all([
+        repository(Client).getById(req.body.clientId),
+        repository(Address).getById(req.body.clientId),
+      ]);
 
       const basketProducts = await Promise.all(
         products.map(async (product) => {
@@ -65,6 +72,8 @@ module.exports = {
       await Queue.add('NewOrderJob', {
         ...order.toJSON(),
         products: orderLines,
+        client: client.toJSON(),
+        address: address.toJSON(),
       });
       await transaction.commit();
       return res.send({

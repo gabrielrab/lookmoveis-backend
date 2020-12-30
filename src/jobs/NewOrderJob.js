@@ -7,14 +7,16 @@ edge.registerViews(path.resolve(__dirname, '..', 'view'));
 
 export default {
   key: 'NewOrderJob',
-  async handle(order) {
+  async handle({ data }) {
     await Mail.sendMail({
       from: process.env.MAIL_SENDER,
       to: process.env.MAIL_RECEIVER,
       subject: 'Nova solicitação de pedido',
       html: edge.render('newOrder', {
-        order,
-        products: order.products,
+        order: data,
+        products: data.products,
+        client: data.client,
+        address: data.address,
       }),
     });
   },
