@@ -1,3 +1,2 @@
-import NewOrderJob from './NewOrderJob';
-
-export { NewOrderJob };
+export { default as NewOrderJob } from './NewOrderJob';
+export { default as NewEmailFromSiteJob } from './NewEmailFromSiteJob';
