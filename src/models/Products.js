@@ -44,6 +44,10 @@ class Products extends Model {
           type: DataTypes.BOOLEAN,
           defaultValue: true,
         },
+        categoryId: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+        },
       },
       {
         sequelize,
@@ -56,6 +60,24 @@ class Products extends Model {
     this.hasMany(models.ProductAttrs, {
       foreignKey: 'productId',
       as: 'attributes',
+    });
+    this.belongsTo(models.Categories, {
+      foreignKey: 'id',
+      as: 'category',
+    });
+    this.belongsToMany(models.WoodTypes, {
+      as: 'woodTypes',
+      through: { model: models.ProductWoodTypes, unique: false },
+      foreignKey: 'productId',
+      constraints: false,
+    });
+    this.hasMany(models.Images, {
+      foreignKey: 'objectId',
+      as: 'images',
+    });
+    this.hasMany(models.Images, {
+      foreignKey: 'objectId',
+      as: 'imagesDecorated',
     });
   }
 }

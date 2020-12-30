@@ -15,11 +15,15 @@ module.exports = {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
       },
+      qty: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       total: {
         type: DataTypes.DECIMAL(10, 2),
         allowNull: false,
       },
-      invoice_type: {
+      type: {
         type: DataTypes.ENUM([
           'product',
           'shipping-fee',
@@ -36,12 +40,6 @@ module.exports = {
       },
       order_id: {
         type: DataTypes.INTEGER,
-        references: {
-          model: {
-            tableName: 'orders',
-          },
-          key: 'id',
-        },
         allowNull: false,
       },
       created_at: {

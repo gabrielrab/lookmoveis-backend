@@ -2,7 +2,21 @@ import repository from '../factories/Repository';
 import { Products } from '../models';
 
 const ListingQuery = {
-  associations: [{ association: 'attributes' }],
+  associations: [
+    { association: 'attributes' },
+    { association: 'category' },
+    { association: 'woodTypes' },
+    {
+      association: 'images',
+      where: { type: 'product' },
+      required: false,
+    },
+    {
+      association: 'imagesDecorated',
+      where: { type: 'product-decorated' },
+      required: false,
+    },
+  ],
 };
 
 module.exports = {

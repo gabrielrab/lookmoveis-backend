@@ -11,5 +11,18 @@ module.exports = {
     check('length').exists().isDecimal(),
     check('price').exists().isDecimal(),
     check('stock').exists().isBoolean(),
+    check('categoryId').exists().isBoolean(),
+  ],
+  update: [
+    check('name').optional().isString(),
+    check('isAvailable').optional().isBoolean(),
+    check('description').optional().isString(),
+    check('weight').optional().isDecimal(),
+    check('width').optional().isDecimal(),
+    check('heigth').optional().isDecimal(),
+    check('length').optional().isDecimal(),
+    check('price').optional().isDecimal(),
+    check('stock').optional().isBoolean(),
+    check('categoryId').optional().isBoolean(),
   ],
 };

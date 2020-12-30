@@ -3,13 +3,17 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
 import http from 'http';
+import { router as UI, setQueues, BullAdapter } from 'bull-board';
 import routes from './router';
-import { errorHandler } from './middlewares';
+import Queue from './lib/Queue';
+import { errorHandler, auth } from './middlewares';
 
 require('dotenv').config();
 
 const app = express();
 const server = http.Server(app);
+
+setQueues(Queue.queues.map((queue) => new BullAdapter(queue.bull)));
 
 app.use(cors());
 
@@ -30,6 +34,9 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/ui', UI);
+app.use(auth);
 app.use('/', routes);
 app.use(errorHandler);
+
 module.exports = { app, server };

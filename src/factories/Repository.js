@@ -27,11 +27,10 @@ const Repository = (model, listingQuery) => ({
 
   async store(data) {
     try {
-      const entity = await model.build(data);
-      await entity.validate();
-      return await entity.save();
+      const entity = await model.create(data);
+      return entity;
     } catch (error) {
-      throw new ValidationError(error.errors.map((e) => e.message));
+      throw new ValidationError(error);
     }
   },
 

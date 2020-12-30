@@ -42,22 +42,10 @@ module.exports = {
       },
       address_id: {
         type: DataTypes.INTEGER,
-        references: {
-          model: {
-            tableName: 'addresses',
-          },
-          key: 'id',
-        },
         allowNull: false,
       },
       client_id: {
-        type: DataTypes.STRING,
-        references: {
-          model: {
-            tableName: 'clients',
-          },
-          key: 'id',
-        },
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       created_at: {

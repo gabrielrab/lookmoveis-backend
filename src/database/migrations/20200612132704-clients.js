@@ -16,7 +16,7 @@ module.exports = {
         allowNull: false,
       },
       doc: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       email: {

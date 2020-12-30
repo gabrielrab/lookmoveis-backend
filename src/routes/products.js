@@ -12,7 +12,11 @@ router.post(
   validator(validation.store),
   wrap(ProductController.store),
 );
-router.put('/products/:id', wrap(ProductController.update));
+router.put(
+  '/products/:id',
+  validator(validation.update),
+  wrap(ProductController.update),
+);
 router.delete('/products/:id', wrap(ProductController.destroy));
 
 module.exports = router;

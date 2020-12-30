@@ -39,18 +39,10 @@ class Orders extends Model {
         },
         addressId: {
           type: DataTypes.INTEGER,
-          references: {
-            model: 'Addresses',
-            key: 'id',
-          },
           allowNull: false,
         },
         clientId: {
           type: DataTypes.STRING,
-          references: {
-            model: 'Clients',
-            key: 'id',
-          },
           allowNull: false,
         },
       },

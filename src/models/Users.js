@@ -1,4 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
+import bcrypt from 'bcrypt';
+import { ForbiddenError } from '../utils/errors';
 
 class User extends Model {
   static init(sequelize) {
@@ -32,10 +34,6 @@ class User extends Model {
         },
         clientId: {
           type: DataTypes.INTEGER,
-          references: {
-            model: 'Clients',
-            key: 'id',
-          },
           allowNull: true,
         },
       },
@@ -44,6 +42,29 @@ class User extends Model {
         tableName: 'users',
       },
     );
+
+    super.beforeSave(async (user) => {
+      if (user.changed('password')) {
+        user.password = await bcrypt.hash(user.password, 10);
+      }
+    });
+
+    super.authenticate = async (email, password) => {
+      const user = await super.findOne({
+        where: { email },
+        // adicionar aqui o relacionamento necessário
+        rejectOnEmpty: false,
+      });
+      const checkPassword =
+        user !== null
+          ? await bcrypt.compare(password, user.password)
+          : false;
+
+      if (!checkPassword) {
+        throw new ForbiddenError('Usuário ou senha inválido !');
+      }
+      return user;
+    };
   }
 
   static associate() {}

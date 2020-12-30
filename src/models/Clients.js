@@ -13,7 +13,7 @@ class Clients extends Model {
           allowNull: false,
         },
         doc: {
-          type: DataTypes.INTEGER,
+          type: DataTypes.STRING,
           allowNull: false,
         },
         email: {
@@ -33,6 +33,11 @@ class Clients extends Model {
     );
   }
 
-  static associate() {}
+  static associate(models) {
+    this.hasMany(models.Addresses, {
+      foreignKey: 'clientId',
+      as: 'addresses',
+    });
+  }
 }
 module.exports = Clients;

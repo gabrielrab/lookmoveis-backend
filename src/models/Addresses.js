@@ -18,7 +18,7 @@ class Addresses extends Model {
         },
         streetAdd: {
           type: DataTypes.STRING,
-          allowNull: false,
+          allowNull: true,
         },
         neighborhood: {
           type: DataTypes.STRING,
@@ -38,10 +38,6 @@ class Addresses extends Model {
         },
         clientId: {
           type: DataTypes.INTEGER,
-          references: {
-            model: 'Clients',
-            key: 'id',
-          },
           allowNull: false,
         },
       },
@@ -52,6 +48,11 @@ class Addresses extends Model {
     );
   }
 
-  static associate() {}
+  static associate(models) {
+    this.belongsTo(models.Clients, {
+      foreignKey: 'clientId',
+      as: 'client',
+    });
+  }
 }
 module.exports = Addresses;

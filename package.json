@@ -8,19 +8,34 @@
     "start": "sucrase-node ./bin/server.js",
     "dev": "npm-run-all -p dev:*",
     "dev:server": "nodemon ./bin/server.js",
-    "dev:queue": "nodemon src/queue.js"
+    "dev:queue": "nodemon src/queue.js",
+    "migration:build": "yarn sequelize db:migrate",
+    "lint": "yarn eslint --fix ."
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "bull": "@3.12.1",
+    "bull-board": "^1.2.0",
     "cors": "^2.8.5",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
+    "edge.js": "^1.1.4",
     "express": "^4.17.1",
     "express-validator": "^6.6.1",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.17",
+    "nodemailer-sendgrid-transport": "^0.2.0",
     "nodemon": "^2.0.3",
     "npm-run-all": "^4.1.5",
+    "path": "^0.12.7",
     "pg": "^8.1.0",
     "pg-hstore": "^2.3.3",
     "require-all": "^3.0.0",
@@ -29,11 +44,14 @@
     "sucrase": "^3.14.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.3.5",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
     "sequelize-cli": "^5.5.1"

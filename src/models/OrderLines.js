@@ -12,11 +12,15 @@ class OrderLines extends Model {
           type: DataTypes.DECIMAL(10, 2),
           allowNull: false,
         },
+        qty: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+        },
         total: {
           type: DataTypes.DECIMAL(10, 2),
           allowNull: false,
         },
-        invoiceType: {
+        type: {
           type: DataTypes.ENUM([
             'product',
             'shipping-fee',
@@ -33,10 +37,6 @@ class OrderLines extends Model {
         },
         orderId: {
           type: DataTypes.INTEGER,
-          references: {
-            model: 'Orders',
-            key: 'id',
-          },
           allowNull: false,
         },
       },

@@ -17,12 +17,6 @@ module.exports = {
       },
       product_id: {
         type: DataTypes.INTEGER,
-        references: {
-          model: {
-            tableName: 'products',
-          },
-          key: 'id',
-        },
         allowNull: false,
       },
       created_at: {
