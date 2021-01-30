@@ -7,8 +7,9 @@ import { router as UI, setQueues, BullAdapter } from 'bull-board';
 import routes from './router';
 import Queue from './lib/Queue';
 import { errorHandler, auth } from './middlewares';
-
-require('dotenv').config();
+import adminBroRouter from './services/adminBro';
+import adminBroConfig from './config/adminBro';
+import 'dotenv/config';
 
 const app = express();
 const server = http.Server(app);
@@ -34,6 +35,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(adminBroConfig.url, adminBroRouter);
 app.use('/ui', UI);
 app.use(auth);
 app.use('/', routes);
