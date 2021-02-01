@@ -4,6 +4,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import http from 'http';
 import { router as UI, setQueues, BullAdapter } from 'bull-board';
+import path from 'path';
 import routes from './router';
 import Queue from './lib/Queue';
 import { errorHandler, auth } from './middlewares';
@@ -33,6 +34,11 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
   next();
 });
+
+app.use(
+  '/static',
+  express.static(path.resolve(__dirname, 'uploads')),
+);
 
 app.use('/ui', UI);
 app.use(auth);
