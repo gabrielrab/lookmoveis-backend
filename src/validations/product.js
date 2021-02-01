@@ -11,7 +11,7 @@ module.exports = {
     check('length').exists().isDecimal(),
     check('price').exists().isDecimal(),
     check('stock').exists().isBoolean(),
-    check('categoryId').exists().isBoolean(),
+    check('categoryId').exists().isDecimal(),
   ],
   update: [
     check('name').optional().isString(),
@@ -23,6 +23,6 @@ module.exports = {
     check('length').optional().isDecimal(),
     check('price').optional().isDecimal(),
     check('stock').optional().isBoolean(),
-    check('categoryId').optional().isBoolean(),
+    check('categoryId').optional().isDecimal(),
   ],
 };
