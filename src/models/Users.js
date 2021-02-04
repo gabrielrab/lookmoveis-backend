@@ -52,7 +52,6 @@ class User extends Model {
     super.authenticate = async (email, password) => {
       const user = await super.findOne({
         where: { email },
-        // adicionar aqui o relacionamento necessário
         rejectOnEmpty: false,
       });
       const checkPassword =
