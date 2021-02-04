@@ -1,5 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import { ForbiddenError } from '../utils/errors';
 
 class User extends Model {
@@ -52,7 +53,6 @@ class User extends Model {
     super.authenticate = async (email, password) => {
       const user = await super.findOne({
         where: { email },
-        // adicionar aqui o relacionamento necessário
         rejectOnEmpty: false,
       });
       const checkPassword =
@@ -63,7 +63,14 @@ class User extends Model {
       if (!checkPassword) {
         throw new ForbiddenError('Usuário ou senha inválido !');
       }
-      return user;
+      const token = jwt.sign(
+        user.toJSON(),
+        process.env.JWT_PRIVATE_KEY,
+        {
+          expiresIn: '24h',
+        },
+      );
+      return { token };
     };
   }
 
