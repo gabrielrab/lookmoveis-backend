@@ -9,6 +9,10 @@ module.exports = {
   },
   buttons: {
     save: 'Salvar',
+    filter: 'Filtrar',
+    reset: 'Limpar',
+    filters: 'Filtros',
+    apply: 'Salvar',
   },
   properties: {
     name: 'Nome',
@@ -46,5 +50,13 @@ module.exports = {
     streetAdd: 'Complemento',
     streetNumber: 'Número',
     streetName: 'Rua',
+  },
+  labels: {
+    addresses: 'Endereços',
+    clients: 'Clientes',
+    users: 'Usuários',
+    wood_types: 'Acabamentos',
+    products: 'Produtos',
+    orders: 'Pedidos',
   },
 };

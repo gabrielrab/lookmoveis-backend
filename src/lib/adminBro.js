@@ -4,6 +4,7 @@ import AdminBroSequelize from '@admin-bro/sequelize';
 import adminBroConfigs from '../config/adminBro';
 import database from '../database';
 import { adminBroTranslate } from '../translate';
+import * as adminBroParentGroup from './adminBroResources/parentGroup/index';
 
 AdminBro.registerAdapter(AdminBroSequelize);
 
@@ -11,8 +12,20 @@ const adminBro = new AdminBro({
   database: [database],
   rootPath: adminBroConfigs.url,
   resources: [
-    { resource: database.models.Addresses },
-    { resource: database.models.Clients },
+    {
+      // title: 'Testeee',
+      resource: database.models.Addresses,
+      options: {
+        // title: 'Endereço',
+        parent: adminBroParentGroup.customerGroup,
+      },
+    },
+    {
+      resource: database.models.Clients,
+      options: {
+        parent: adminBroParentGroup.customerGroup,
+      },
+    },
     { resource: database.models.User },
     { resource: database.models.WoodTypes },
     { resource: database.models.Categories },
@@ -25,10 +38,13 @@ const adminBro = new AdminBro({
     logo: null,
   },
   locale: {
+    language: 'pl',
     translations: {
       actions: adminBroTranslate.actions,
       buttons: adminBroTranslate.buttons,
       properties: adminBroTranslate.properties,
+      labels: adminBroTranslate.labels,
+      messages: {},
     },
   },
 });

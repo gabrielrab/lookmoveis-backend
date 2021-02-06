@@ -7,7 +7,7 @@ import { router as UI, setQueues, BullAdapter } from 'bull-board';
 import routes from './router';
 import Queue from './lib/Queue';
 import { errorHandler, auth } from './middlewares';
-import adminBroRouter from './services/adminBro';
+import adminBroRouter from './lib/adminBro';
 import adminBroConfig from './config/adminBro';
 import 'dotenv/config';
 
