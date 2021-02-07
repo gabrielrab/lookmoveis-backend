@@ -21,7 +21,7 @@ module.exports = {
     city: 'Cidade',
     zipcode: 'Cep',
     phoneNumber: 'Telefone',
-    doc: 'Docuemnto',
+    doc: 'Documento',
     firstName: 'Nome',
     createdAt: 'Data de criação',
     price: 'Preço',
