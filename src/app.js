@@ -7,7 +7,7 @@ import { router as UI, setQueues, BullAdapter } from 'bull-board';
 import path from 'path';
 import routes from './router';
 import Queue from './lib/Queue';
-import { errorHandler, auth } from './middlewares';
+import { errorHandler } from './middlewares';
 
 require('dotenv').config();
 
@@ -41,7 +41,6 @@ app.use(
 );
 
 app.use('/ui', UI);
-app.use(auth);
 app.use('/', routes);
 app.use(errorHandler);
 

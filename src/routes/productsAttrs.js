@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { wrap, validator } from '../middlewares';
+import { wrap, validator, auth } from '../middlewares';
 import { productAttrs as validation } from '../validations';
 import { ProductAttrController } from '../controllers';
 
@@ -12,12 +12,18 @@ router.get(
 );
 router.post(
   '/products-attrs',
+  auth,
   validator(validation.store),
   wrap(ProductAttrController.store),
 );
-router.put('/products-attrs/:id', wrap(ProductAttrController.update));
+router.put(
+  '/products-attrs/:id',
+  auth,
+  wrap(ProductAttrController.update),
+);
 router.delete(
   '/products-attrs/:id',
+  auth,
   wrap(ProductAttrController.destroy),
 );
 
