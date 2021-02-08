@@ -1,5 +1,7 @@
+import AdminBro from 'admin-bro';
 import adminBroConfigs from '../../config/adminBro';
 
+/** @type {AdminBro.ResourceOptions} */
 const properties = {
   id: {
     isVisible: {
@@ -9,12 +11,18 @@ const properties = {
       edit: false,
     },
   },
-  name: {
-    isVisible: { list: true, filter: true, show: true, edit: true },
-    type: 'text',
-  },
-  clientId: {
-    reference: 'users',
+  image: {
+    components: {
+      //   view: AdminBro.bundle(
+      //     '../../view/adminBro/components/upload-image-list.tsx',
+      //   ),
+      show: AdminBro.bundle(
+        '../../view/adminBro/components/show-image.products.tsx',
+      ),
+      //   list: AdminBro.bundle(
+      //     '../../view/adminBro/components/upload-image-list.tsx',
+      //   ),
+    },
   },
   updatedAt: {
     isVisible: false,
@@ -32,7 +40,7 @@ const actions = {
 const options = {
   properties,
   actions,
-  parent: adminBroConfigs.parentGroups.customerGroup,
+  parent: adminBroConfigs.parentGroups.productGroup,
   sort: {
     direction: 'desc',
     sortBy: 'id',

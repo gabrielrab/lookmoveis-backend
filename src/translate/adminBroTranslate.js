@@ -8,6 +8,7 @@ module.exports = {
     bulkDelete: 'Deletar selecionados',
   },
   buttons: {
+    list: 'Listagem',
     save: 'Salvar',
     filter: 'Filtrar',
     reset: 'Limpar',
@@ -58,5 +59,6 @@ module.exports = {
     wood_types: 'Acabamentos',
     products: 'Produtos',
     orders: 'Pedidos',
+    categories: 'Categorias',
   },
 };

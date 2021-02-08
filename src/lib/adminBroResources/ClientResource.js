@@ -9,13 +9,6 @@ const properties = {
       edit: false,
     },
   },
-  name: {
-    isVisible: { list: true, filter: true, show: true, edit: true },
-    type: 'text',
-  },
-  clientId: {
-    reference: 'users',
-  },
   updatedAt: {
     isVisible: false,
   },
@@ -35,7 +28,7 @@ const options = {
   parent: adminBroConfigs.parentGroups.customerGroup,
   sort: {
     direction: 'desc',
-    sortBy: 'id',
+    sortBy: 'firstName',
   },
 };
 

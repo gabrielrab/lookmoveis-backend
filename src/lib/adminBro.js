@@ -4,7 +4,12 @@ import AdminBroSequelize from '@admin-bro/sequelize';
 import adminBroConfigs from '../config/adminBro';
 import database from '../database';
 import { adminBroTranslate } from '../translate';
-import { AddressResource } from './adminBroResources';
+import {
+  AddressResource,
+  ClientResource,
+  CategoryResource,
+  ProductResource,
+} from './adminBroResources';
 
 AdminBro.registerAdapter(AdminBroSequelize);
 
@@ -18,11 +23,18 @@ const adminBro = new AdminBro({
     },
     {
       resource: database.models.Clients,
+      options: ClientResource.options,
+    },
+    {
+      resource: database.models.Products,
+      options: ProductResource.options,
+    },
+    {
+      resource: database.models.Categories,
+      options: CategoryResource.options,
     },
     { resource: database.models.User },
     { resource: database.models.WoodTypes },
-    { resource: database.models.Categories },
-    { resource: database.models.Products },
     { resource: database.models.Orders },
   ],
   branding: {

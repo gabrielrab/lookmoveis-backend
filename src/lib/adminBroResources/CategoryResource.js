@@ -3,24 +3,22 @@ import adminBroConfigs from '../../config/adminBro';
 const properties = {
   id: {
     isVisible: {
-      list: false,
+      list: true,
       filter: false,
       show: true,
       edit: false,
     },
   },
-  name: {
-    isVisible: { list: true, filter: true, show: true, edit: true },
-    type: 'text',
-  },
-  clientId: {
-    reference: 'users',
-  },
   updatedAt: {
     isVisible: false,
   },
   createdAt: {
-    isVisible: false,
+    isVisible: {
+      list: true,
+      filter: false,
+      show: true,
+      edit: false,
+    },
   },
 };
 
@@ -32,7 +30,7 @@ const actions = {
 const options = {
   properties,
   actions,
-  parent: adminBroConfigs.parentGroups.customerGroup,
+  parent: adminBroConfigs.parentGroups.productGroup,
   sort: {
     direction: 'desc',
     sortBy: 'id',
