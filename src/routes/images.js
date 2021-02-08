@@ -4,6 +4,7 @@ import {
   wrap,
   validator,
   multer as multerConfigs,
+  auth,
 } from '../middlewares';
 import { image as validation } from '../validations';
 import { ImageController } from '../controllers';
@@ -14,10 +15,11 @@ router.get('/images', wrap(ImageController.list));
 router.get('/images/:id', wrap(ImageController.getById));
 router.post(
   '/images',
+  auth,
   multer(multerConfigs).array('images', 10),
   validator(validation.store),
   wrap(ImageController.store),
 );
-router.delete('/images/:id', wrap(ImageController.destroy));
+router.delete('/images/:id', auth, wrap(ImageController.destroy));
 
 module.exports = router;
