@@ -6,6 +6,8 @@ module.exports = {
     delete: 'Remover',
     search: 'Buscar',
     bulkDelete: 'Deletar selecionados',
+    reset: 'Limpar',
+    addImage: 'Adicionar Imagem',
   },
   buttons: {
     list: 'Listagem',
@@ -14,6 +16,7 @@ module.exports = {
     reset: 'Limpar',
     filters: 'Filtros',
     apply: 'Salvar',
+    applyChanges: 'Buscar',
   },
   properties: {
     name: 'Nome',
@@ -59,6 +62,7 @@ module.exports = {
     categoryId: 'Categoria',
   },
   labels: {
+    filters: 'Filtros',
     addresses: 'Endereços',
     clients: 'Clientes',
     users: 'Usuários',

@@ -37,9 +37,23 @@ const properties = {
 const actions = {
   list: { isAccessible: true },
   search: { isAccessible: false },
+  addImage: {
+    actionType: ['record'],
+    label: 'Adicionar Produto',
+    icon: 'Bag',
+    handler: async (request, response, data) => {
+      return {
+        record: data.record.toJSON(),
+      };
+    },
+    component: AdminBro.bundle(
+      '../../view/adminBro/components/upload-image.products.tsx',
+    ),
+  },
 };
 
 const options = {
+  filterProperties: ['name'],
   properties,
   actions,
   parent: adminBroConfigs.parentGroups.productGroup,
