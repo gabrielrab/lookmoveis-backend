@@ -13,15 +13,9 @@ const properties = {
   },
   image: {
     components: {
-      //   view: AdminBro.bundle(
-      //     '../../view/adminBro/components/upload-image-list.tsx',
-      //   ),
       show: AdminBro.bundle(
         '../../view/adminBro/components/show-image.products.tsx',
       ),
-      //   list: AdminBro.bundle(
-      //     '../../view/adminBro/components/upload-image-list.tsx',
-      //   ),
     },
   },
   updatedAt: {

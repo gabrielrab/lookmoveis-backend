@@ -52,6 +52,7 @@ class Products extends Model {
       {
         sequelize,
         tableName: 'products',
+        order: [['id', 'DESC']],
       },
     );
   }
