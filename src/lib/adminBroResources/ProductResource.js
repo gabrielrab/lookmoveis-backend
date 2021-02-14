@@ -4,13 +4,14 @@ import adminBroConfigs from '../../config/adminBro';
 /** @type {AdminBro.ResourceOptions} */
 const properties = {
   id: {
+    isTitle: true,
     isVisible: {
-      list: false,
+      list: true,
       filter: false,
       show: false,
       edit: false,
     },
-    reference: 'products',
+    type: 'string',
   },
   image: {
     components: {
@@ -18,6 +19,9 @@ const properties = {
         '../../view/adminBro/components/show-image.products.tsx',
       ),
     },
+  },
+  name: {
+    position: 1,
   },
   categoryId: {
     reference: 'categories',
