@@ -7,9 +7,10 @@ const properties = {
     isVisible: {
       list: false,
       filter: false,
-      show: true,
+      show: false,
       edit: false,
     },
+    reference: 'products',
   },
   image: {
     components: {
@@ -17,6 +18,9 @@ const properties = {
         '../../view/adminBro/components/show-image.products.tsx',
       ),
     },
+  },
+  categoryId: {
+    reference: 'categories',
   },
   updatedAt: {
     isVisible: false,
