@@ -101,13 +101,11 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
     const fileList =
       event.target.files.length > 0 ? event.target.files : [];
 
-    console.log('file', fileList.length);
-
     for (let i = 0; i < fileList.length; i++) {
       const reader = new FileReader();
       reader.onload = (upload) => {
         setImage({
-          preview: [upload.target.result, ...images.preview],
+          preview: [upload.target.result],
         });
       };
       reader.readAsDataURL(fileList[i]);
@@ -116,7 +114,8 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
 
   useEffect(() => {
     (() => {
-      console.log('[images]', images);
+      const result = [...data, ...images.preview];
+      setData(result);
     })();
   }, [images]);
 
@@ -151,7 +150,7 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
               Clique ou arraste aqui sua(as) imagens
             </StyledDropZone>
             {images &&
-              images.preview.map((image, index) => (
+              data.map((image, index) => (
                 <DropZoneItem src={image} key={index} />
               ))}
           </form>
