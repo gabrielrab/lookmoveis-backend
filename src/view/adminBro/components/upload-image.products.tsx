@@ -1,16 +1,8 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BasePropertyProps } from 'admin-bro';
-import {
-  Box,
-  Header,
-  Label,
-  DropZone,
-  DropZoneItem,
-} from '@admin-bro/design-system';
+import { Box, Header, DropZoneItem } from '@admin-bro/design-system';
 import axios from 'axios';
 import styled from 'styled-components';
-import { set } from 'core-js/fn/reflect';
-import { forEach } from 'core-js/fn/dict';
 
 const Select = styled.select`
   max-width: 400px;
@@ -112,6 +104,13 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
     }
   };
 
+  const onRemove = (indexFromRemove) => {
+    const filterData = data.filter(
+      (values, index) => index !== indexFromRemove,
+    );
+    setData(filterData);
+  };
+
   useEffect(() => {
     (() => {
       const result = [...data, ...images.preview];
@@ -151,7 +150,11 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
             </StyledDropZone>
             {images &&
               data.map((image, index) => (
-                <DropZoneItem src={image} key={index} />
+                <DropZoneItem
+                  src={image}
+                  key={index}
+                  onRemove={(): void => onRemove(index)}
+                />
               ))}
           </form>
         </Box>
