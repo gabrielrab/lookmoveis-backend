@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BasePropertyProps } from 'admin-bro';
-import { Box, Header, DropZoneItem } from '@admin-bro/design-system';
+import {
+  Box,
+  Header,
+  DropZoneItem,
+  Button,
+} from '@admin-bro/design-system';
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -60,6 +65,28 @@ const UploadInput = styled.input`
   width: 100%;
 `;
 
+const ImageList = styled.section`
+  max-width: 920px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+`;
+
+const ImageCard = styled.div`
+  width: 300px;
+  margin: 3px;
+
+  @media (max-width: 800px) {
+    width: auto;
+  }
+`;
+
 const optionsValues = [
   {
     value: 'product-decorated',
@@ -87,6 +114,7 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
   const { record } = props;
   const [images, setImage] = useState({ preview: [] });
   const [data, setData] = useState([]);
+  const [formValues, setFormValues] = useState({});
 
   const onDrop = (event) => {
     event.preventDefault();
@@ -113,10 +141,20 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
 
   useEffect(() => {
     (() => {
-      const result = [...data, ...images.preview];
-      setData(result);
+      const resultPreview = [...data, ...images.preview];
+      setData(resultPreview);
     })();
   }, [images]);
+
+  const handleChange = (event) => {
+    const auxValues = { ...formValues };
+    auxValues[event.target.name] = event.target.value;
+    setFormValues(auxValues);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
 
   const configs = {
     multiple: true,
@@ -126,9 +164,9 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
     <Box variant="gray">
       <Box variant="white">
         <Box>
-          <form>
+          <form encType="multipart/form-data" onSubmit={handleSubmit}>
             <Header.H4>Selecione o tipo da Imagem</Header.H4>
-            <Select>
+            <Select required name="type" onChange={handleChange}>
               <Option hidden>Tipo da Imagem</Option>
               {optionsValues
                 .filter((option) => option.hidden === true)
@@ -148,14 +186,27 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
               />
               Clique ou arraste aqui sua(as) imagens
             </StyledDropZone>
-            {images &&
-              data.map((image, index) => (
-                <DropZoneItem
-                  src={image}
-                  key={index}
-                  onRemove={(): void => onRemove(index)}
-                />
-              ))}
+            <ImageList>
+              {images &&
+                data.map((image, index) => (
+                  <ImageCard key={index}>
+                    <DropZoneItem
+                      src={image}
+                      key={index}
+                      filename={`Arquivo ${
+                        index + 1
+                      } carregado com sucesso.`}
+                      onRemove={(): void => onRemove(index)}
+                    />
+                  </ImageCard>
+                ))}
+            </ImageList>
+
+            <Button
+              label={
+                configs.multiple ? `Enviar imagens` : `Enviar imagem`
+              }
+            />
           </form>
         </Box>
       </Box>
