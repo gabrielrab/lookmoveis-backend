@@ -45,7 +45,6 @@ const openImage = (url: String) => {
 const ShowImage: React.FC<BasePropertyProps> = (props) => {
   const { record } = props;
   const [images, setImages] = useState<Images[]>([]);
-  console.log('[record]', record);
 
   useEffect(() => {
     (async () => {

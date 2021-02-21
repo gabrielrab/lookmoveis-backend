@@ -110,11 +110,19 @@ const optionsValues = [
   },
 ];
 
+const pageConfigs = {
+  redirectPageAfterUpload: '/admin/resources/products',
+  apiMasterKey: 12345678,
+  imageResourceType: 'product',
+  multiple: true,
+};
+
 const ShowImage: React.FC<BasePropertyProps> = (props) => {
   const { record } = props;
   const [images, setImage] = useState({ preview: [] });
   const [data, setData] = useState([]);
   const [formValues, setFormValues] = useState({});
+  const [onUpload, setOnUpload] = useState(false);
 
   const onDrop = (event) => {
     event.preventDefault();
@@ -152,12 +160,30 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
     setFormValues(auxValues);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-  };
 
-  const configs = {
-    multiple: true,
+    console.log('formValue', formValues);
+
+    setOnUpload(true);
+    await Promise.all(
+      data.map(async (currentImage) => {
+        const request = await axios.post(
+          `/imagesBase64`,
+          {
+            type: formValues.type || pageConfigs.imageResourceType,
+            objectId: record.id,
+            image: currentImage,
+          },
+          { headers: { apiKey: pageConfigs.apiMasterKey } },
+        );
+        return request;
+      }),
+    );
+
+    alert('Envio de imagens realizado');
+    window.location.assign(pageConfigs.redirectPageAfterUpload);
+    setOnUpload(false);
   };
 
   return (
@@ -181,7 +207,7 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
               <UploadInput
                 type="file"
                 name="files[]"
-                multiple={configs.multiple}
+                multiple={pageConfigs.multiple}
                 onChange={(event): void => onDrop(event)}
               />
               Clique ou arraste aqui sua(as) imagens
@@ -204,8 +230,13 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
 
             <Button
               label={
-                configs.multiple ? `Enviar imagens` : `Enviar imagem`
+                !onUpload
+                  ? pageConfigs.multiple
+                    ? `Enviar imagens`
+                    : `Enviar imagem`
+                  : 'Realizando o envio...'
               }
+              disabled={onUpload}
             />
           </form>
         </Box>

@@ -18,6 +18,7 @@ router.post(
   validator(validation.store),
   wrap(ImageController.store),
 );
+router.post('/imagesBase64', wrap(ImageController.uploadBase64));
 router.delete('/images/:id', wrap(ImageController.destroy));
 
 module.exports = router;
