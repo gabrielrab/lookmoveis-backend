@@ -9,6 +9,7 @@ import {
   ClientResource,
   CategoryResource,
   ProductResource,
+  WoodTypeResource,
 } from './adminBroResources';
 
 AdminBro.registerAdapter(AdminBroSequelize);
@@ -33,8 +34,11 @@ const adminBro = new AdminBro({
       resource: database.models.Categories,
       options: CategoryResource.options,
     },
+    {
+      resource: database.models.WoodTypes,
+      options: WoodTypeResource.options,
+    },
     { resource: database.models.User },
-    { resource: database.models.WoodTypes },
     { resource: database.models.Orders },
   ],
   branding: {
