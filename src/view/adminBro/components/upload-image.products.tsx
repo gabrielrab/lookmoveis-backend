@@ -163,8 +163,6 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log('formValue', formValues);
-
     setOnUpload(true);
     await Promise.all(
       data.map(async (currentImage) => {

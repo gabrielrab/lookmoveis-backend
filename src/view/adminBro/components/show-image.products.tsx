@@ -38,7 +38,7 @@ const ImageList = styled.section`
 `;
 
 const openImage = (url: String) => {
-  const newPage = window.open(`/static/${url}`, '_blank');
+  const newPage = window.open(`${url}`, '_blank');
   newPage.focus();
 };
 
@@ -46,13 +46,22 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
   const { record } = props;
   const [images, setImages] = useState<Images[]>([]);
 
+  const pageConfigs = {
+    apiMasterKey: 12345678,
+    resourceType: 'products',
+    multiple: true,
+  };
+
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get(`/products/${record.id}`, {
-        headers: {
-          apiKey: 12345678,
+      const { data } = await axios.get(
+        `/${pageConfigs.resourceType}/${record.id}`,
+        {
+          headers: {
+            apiKey: pageConfigs.apiMasterKey,
+          },
         },
-      });
+      );
       setImages([...data.images, ...data.imagesDecorated]);
     })();
   }, [record]);
@@ -65,7 +74,7 @@ const ShowImage: React.FC<BasePropertyProps> = (props) => {
             <ImageCard>
               <a onClick={() => openImage(image.url)}>
                 <DropZoneItem
-                  src={`/static/${image.url}`}
+                  src={`${image.url}`}
                   filename={`Imagem do produto - ${
                     record.params.name
                   }${
