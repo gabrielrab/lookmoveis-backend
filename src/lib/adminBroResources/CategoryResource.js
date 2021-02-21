@@ -44,6 +44,19 @@ const properties = {
 const actions = {
   list: { isAccessible: true },
   search: { isAccessible: false },
+  addImage: {
+    actionType: ['record'],
+    label: 'Adicionar imagem a categoria',
+    icon: 'Bag',
+    handler: async (request, response, data) => {
+      return {
+        record: data.record.toJSON(),
+      };
+    },
+    component: AdminBro.bundle(
+      '../../view/adminBro/components/upload-image.categories.tsx',
+    ),
+  },
 };
 
 const options = {
