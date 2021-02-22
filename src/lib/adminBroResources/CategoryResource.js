@@ -20,11 +20,14 @@ const properties = {
       list: false,
       filter: false,
       show: true,
-      edit: false,
+      edit: true,
     },
     components: {
       show: AdminBro.bundle(
         '../../view/adminBro/components/show-image.categories.tsx',
+      ),
+      edit: AdminBro.bundle(
+        '../../view/adminBro/components/remove-image.categories.tsx',
       ),
     },
   },
