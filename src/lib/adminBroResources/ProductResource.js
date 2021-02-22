@@ -18,6 +18,9 @@ const properties = {
       show: AdminBro.bundle(
         '../../view/adminBro/components/show-image.products.tsx',
       ),
+      edit: AdminBro.bundle(
+        '../../view/adminBro/components/remove-image.products.tsx',
+      ),
     },
   },
   name: {
