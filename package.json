@@ -10,7 +10,10 @@
     "dev:server": "nodemon ./bin/server.js",
     "dev:queue": "nodemon src/queue.js",
     "migration:build": "yarn sequelize db:migrate",
-    "lint": "yarn eslint --fix ."
+    "lint": "yarn eslint --fix .",
+    "app": "npm-run-all -p app:*",
+    "app:server": "sucrase-node ./bin/server.js",
+    "app:queue": "sucrase-node ./src/queue.js"
   },
   "husky": {
     "hooks": {
