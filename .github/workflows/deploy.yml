@@ -12,12 +12,12 @@ jobs:
       - name: Deploy Backend
         uses: appleboy/ssh-action@v0.1.2
         with:
-          host: ${{secrets.SSH_HOST}}
-          key: ${{secrets.SSH_PRIVATE_KEY}}
-          username: ${{secrets.SSH_USER}}
+          host: ${{ secrets.SSH_HOST }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passwo: ${{ secrets.SSH_USER }}
 
           script: |
-            echo "Start CI/CD on ${{secrets.SSH_HOST}}"
+            echo "Start CI/CD on ${{ secrets.SSH_HOST }}"
             cd backend
             git pull
             yarn migration:build
