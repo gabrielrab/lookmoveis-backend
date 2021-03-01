@@ -7,19 +7,19 @@ on:
 
 jobs:
   deploy:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Deploy Backend
-      uses: appleboy/ssh-action@0.1.2
-      with:
-        host: ${{secrets.SSH_HOST}}
-        key: ${{secrets.SSH_PRIVATE_KEY}}
-        username: ${{secrets.SSH_USER}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Backend
+        uses: appleboy/ssh-action@0.1.2
+        with:
+          host: ${{secrets.SSH_HOST}}
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          username: ${{secrets.SSH_USER}}
 
-        script: |
-          echo "Start CI/CD..."
-          cd backend
-          git pull
-          yarn migration:build
-          yarn
-          yarn app && echo "End CI/CD..."
+          script: |
+            echo "Start CI/CD..."
+            cd backend
+            git pull
+            yarn migration:build
+            yarn
+            yarn app && echo "End CI/CD..."
