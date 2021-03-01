@@ -17,7 +17,7 @@ jobs:
           username: ${{secrets.SSH_USER}}
 
           script: |
-            echo "Start CI/CD..."
+            echo "Start CI/CD on ${{secrets.SSH_HOST}}"
             cd backend
             git pull
             yarn migration:build
