@@ -21,7 +21,7 @@ jobs:
             kill -9 $(lsof -t -i tcp:3333)
             cd backend
             git pull
-            yarn && docker-compose up -d --build && yarn migration:build && yarn app && exit
+            yarn && docker-compose up -d --build && yarn migration:build && pm2 restart look-backend
 
       - name: Finished
         run: |
