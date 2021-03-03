@@ -1,5 +1,3 @@
-import 'dotenv/config';
-
 module.exports = {
   dialect: 'postgres',
   host: process.env.POSTGRESQL_HOST,
