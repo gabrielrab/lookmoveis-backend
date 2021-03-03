@@ -60,6 +60,13 @@ module.exports = {
     streetNumber: 'Número',
     streetName: 'Rua',
     categoryId: 'Categoria',
+    role: 'Tipo',
+    'role.superadmin': 'Super Administrador',
+    'role.admin': 'Administrador',
+    'role.buyer': 'Cliente',
+    active: 'Ativo',
+    'active.true': 'Sim',
+    'active.false': 'Não',
   },
   labels: {
     filters: 'Filtros',
