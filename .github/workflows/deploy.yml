@@ -22,3 +22,8 @@ jobs:
             cd backend
             git pull
             yarn && docker-compose up -d --build && yarn migration:build && yarn app && exit
+      
+      - name: Finished
+          run: |
+            echo "end..."
+
