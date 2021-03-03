@@ -8,9 +8,9 @@ services:
     ports:
       - '5432:5432'
     environment:
-      - POSTGRES_DB=farmavida
-      - POSTGRES_USER=farmavida
-      - POSTGRES_PASSWORD=farmavida
+      - POSTGRES_DB= ${POSTGRESQL_DB}
+      - POSTGRES_USER=${POSTGRESQL_USER}
+      - POSTGRES_PASSWORD=${POSTGRESQL_PASS}
     volumes:
       - data:/var/lib/postgres
 

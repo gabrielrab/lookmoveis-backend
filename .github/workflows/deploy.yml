@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 2
     steps:
       - name: Deploy Backend
         uses: appleboy/ssh-action@master
@@ -17,9 +18,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
 
           script: |
-            echo "Start CI/CD on ${{ secrets.SSH_HOST }}"
+            kill -9 $(lsof -t -i tcp:3333)
             cd backend
             git pull
-            yarn migration:build
-            yarn
-            yarn app && echo "End CI/CD..."
+            yarn && yarn migration:build && docker-compose up -d --build && yarn app && exit
