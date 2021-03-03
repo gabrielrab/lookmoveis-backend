@@ -12,6 +12,7 @@ import adminBroRouter from './lib/adminBro';
 import adminBroConfig from './config/adminBro';
 import 'dotenv/config';
 
+
 const app = express();
 const server = http.Server(app);
 
@@ -36,14 +37,15 @@ app.use((req, res, next) => {
   next();
 });
 
+
 app.use(adminBroConfig.url, adminBroRouter);
+
 app.use(
   '/static',
   express.static(path.resolve(__dirname, 'uploads')),
 );
 
 app.use('/ui', UI);
-app.use(auth);
 app.use('/', routes);
 app.use(errorHandler);
 
