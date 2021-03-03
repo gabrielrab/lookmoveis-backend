@@ -5,10 +5,11 @@ services:
   postgres:
     image: postgres:latest
     container_name: postgres
+    restart: always
     ports:
       - '5432:5432'
     environment:
-      - POSTGRES_DB= ${POSTGRESQL_DB}
+      - POSTGRES_DB=lookmoveis
       - POSTGRES_USER=${POSTGRESQL_USER}
       - POSTGRES_PASSWORD=${POSTGRESQL_PASS}
     volumes:
