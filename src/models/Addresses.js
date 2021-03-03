@@ -44,6 +44,9 @@ class Addresses extends Model {
       {
         sequelize,
         tableName: 'addresses',
+        defaultScope: {
+          attributes: { exclude: ['updatedAt'] },
+        },
       },
     );
   }
