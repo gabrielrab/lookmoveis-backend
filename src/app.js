@@ -7,9 +7,11 @@ import { router as UI, setQueues, BullAdapter } from 'bull-board';
 import path from 'path';
 import routes from './router';
 import Queue from './lib/Queue';
-import { errorHandler } from './middlewares';
+import { errorHandler, auth } from './middlewares';
+import adminBroRouter from './lib/adminBro';
+import adminBroConfig from './config/adminBro';
+import 'dotenv/config';
 
-require('dotenv').config();
 
 const app = express();
 const server = http.Server(app);
@@ -26,14 +28,17 @@ app.use(
 
 require('./database');
 
-app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json({ limit: '100mb' }));
+app.use(bodyParser.json({ limit: '100mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
   next();
 });
+
+
+app.use(adminBroConfig.url, adminBroRouter);
 
 app.use(
   '/static',
