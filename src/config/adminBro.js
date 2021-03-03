@@ -12,5 +12,9 @@ export default {
       name: 'Produtos',
       icon: 'Bag',
     },
+    management: {
+      name: 'Gerenciamento',
+      icon: 'User',
+    },
   },
 };
