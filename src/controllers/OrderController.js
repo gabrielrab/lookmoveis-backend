@@ -9,14 +9,22 @@ import {
 } from '../models';
 import Queue from '../lib/Queue';
 
+const ListingQuery = {
+  associations: [{ association: 'orderLines' }],
+};
+
 module.exports = {
   async list(req, res) {
-    const data = await repository(Order).list(req.query);
+    const data = await repository(Order, ListingQuery).list(
+      req.query,
+    );
     return res.send(data);
   },
 
   async getById(req, res) {
-    const data = await repository(Order).getById(req.params.id);
+    const data = await repository(Order, ListingQuery).getById(
+      req.params.id,
+    );
     return res.send(data);
   },
 

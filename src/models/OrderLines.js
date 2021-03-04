@@ -47,6 +47,11 @@ class OrderLines extends Model {
     );
   }
 
-  static associate() {}
+  static associate(models) {
+    this.belongsTo(models.Orders, {
+      foreignKey: 'orderId',
+      as: 'order',
+    });
+  }
 }
 module.exports = OrderLines;
