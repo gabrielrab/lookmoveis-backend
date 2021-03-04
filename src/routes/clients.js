@@ -9,13 +9,11 @@ router.get('/clients', wrap(ClientController.list));
 router.get('/clients/:id', wrap(ClientController.getById));
 router.post(
   '/clients',
-
   validator(validation.store),
   wrap(ClientController.store),
 );
 router.put(
   '/clients/:id',
-
   validator(validation.update),
   wrap(ClientController.update),
 );
