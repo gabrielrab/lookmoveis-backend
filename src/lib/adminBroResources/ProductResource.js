@@ -27,7 +27,7 @@ const properties = {
     position: 1,
   },
   categoryId: {
-    reference: 'categories',
+    type: 'string',
   },
   updatedAt: {
     isVisible: false,
