@@ -18,21 +18,6 @@ const server = http.Server(app);
 setQueues(Queue.queues.map((queue) => new BullAdapter(queue.bull)));
 
 app.use(cors());
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header(
-//     'Access-Control-Allow-Headers',
-//     'Origin, X-Requested-With, Content-Type, Accept',
-//   );
-//   res.header('Access-Control-Allow-Credentials', true);
-//   res.header(
-//     'Access-Control-Allow-Methods',
-//     'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-//   );
-//   res.header('Cache-Control', 'no-store,no-cache,must-revalidate');
-//   res.header('Vary', 'Origin');
-//   next();
-// });
 
 app.use(
   morgan(
