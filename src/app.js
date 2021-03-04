@@ -7,7 +7,7 @@ import { router as UI, setQueues, BullAdapter } from 'bull-board';
 import path from 'path';
 import routes from './router';
 import Queue from './lib/Queue';
-import { errorHandler, auth } from './middlewares';
+import { errorHandler } from './middlewares';
 import adminBroRouter from './lib/adminBro';
 import adminBroConfig from './config/adminBro';
 import 'dotenv/config';
@@ -18,6 +18,12 @@ const server = http.Server(app);
 setQueues(Queue.queues.map((queue) => new BullAdapter(queue.bull)));
 
 app.use(cors());
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+  next();
+});
+app.disable('x-powered-by');
 
 app.use(
   morgan(
