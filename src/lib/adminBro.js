@@ -11,6 +11,7 @@ import {
   ProductResource,
   WoodTypeResource,
   UserResource,
+  OrderResource,
 } from './adminBroResources';
 
 AdminBro.registerAdapter(AdminBroSequelize);
@@ -43,7 +44,10 @@ const adminBro = new AdminBro({
       resource: database.models.User,
       options: UserResource.options,
     },
-    { resource: database.models.Orders },
+    {
+      resource: database.models.Orders,
+      options: OrderResource.options,
+    },
   ],
   branding: {
     companyName: adminBroConfigs.companyName,
