@@ -17,11 +17,7 @@ const server = http.Server(app);
 
 setQueues(Queue.queues.map((queue) => new BullAdapter(queue.bull)));
 
-const corsOptions = {
-  origin: 'https://lookmoveiscajuru.com',
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
