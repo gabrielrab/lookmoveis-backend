@@ -18,6 +18,7 @@ const server = http.Server(app);
 setQueues(Queue.queues.map((queue) => new BullAdapter(queue.bull)));
 
 app.use(cors());
+
 app.use(
   morgan(
     '[LOG] Data: [:date[clf]] Endereco: :remote-addr - Metodo::method :url - Status: :status',
