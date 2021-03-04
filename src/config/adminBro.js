@@ -1,6 +1,6 @@
-import 'dotenv/config';
+require('dotenv/config');
 
-export default {
+module.exports = {
   url: process.env.ADMIN_BRO_URL,
   companyName: process.env.ADMIN_BRO_COMPANY_NAME,
   parentGroups: {

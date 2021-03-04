@@ -12,7 +12,6 @@ import adminBroRouter from './lib/adminBro';
 import adminBroConfig from './config/adminBro';
 import 'dotenv/config';
 
-
 const app = express();
 const server = http.Server(app);
 
@@ -36,7 +35,6 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
   next();
 });
-
 
 app.use(adminBroConfig.url, adminBroRouter);
 

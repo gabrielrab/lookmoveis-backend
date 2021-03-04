@@ -1,5 +1,5 @@
-import 'dotenv/config';
+require('dotenv/config');
 
-export default {
+module.exports = {
   apiMasterKey: process.env.API_KEY,
 };
