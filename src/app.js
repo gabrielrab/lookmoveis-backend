@@ -20,10 +20,12 @@ setQueues(Queue.queues.map((queue) => new BullAdapter(queue.bull)));
 app.use(cors());
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept',
+  );
   next();
 });
-app.disable('x-powered-by');
 
 app.use(
   morgan(
@@ -36,12 +38,6 @@ require('./database');
 app.use(express.json({ limit: '100mb' }));
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-  next();
-});
-
 app.use(adminBroConfig.url, adminBroRouter);
 
 app.use(
