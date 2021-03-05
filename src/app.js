@@ -42,7 +42,12 @@ app.use((req, res, next) => {
     res.header('Access-Control-Max-Age', 60 * 60 * 24 * 365);
   }
   if (oneof && req.method === 'OPTIONS') {
-    res.send(204);
+    res.header(
+      'Access-Control-Allow-Methods',
+      'GET, PUT, POST, PATCH, DELETE, OPTIONS',
+    );
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.send(200);
   } else {
     next();
   }
