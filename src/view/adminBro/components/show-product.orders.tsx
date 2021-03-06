@@ -25,7 +25,7 @@ const ShowProducts: React.FC<BasePropertyProps> = (props) => {
   }, [record]);
   return (
     <Box variant="gray">
-      <Header.H5>Listagem de Productos:</Header.H5>
+      <Header.H5>Listagem de Produtos:</Header.H5>
       <ul>
         {images.map((product) => (
           <li>
