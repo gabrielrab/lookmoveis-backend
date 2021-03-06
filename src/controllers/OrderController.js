@@ -45,7 +45,7 @@ module.exports = {
           );
           return {
             name: current.name,
-            description: `Produto: #${current.id}-${current.name}`,
+            description: `${current.name}`,
             unitPrice: current.price,
             qty: product.qty,
             type: 'product',

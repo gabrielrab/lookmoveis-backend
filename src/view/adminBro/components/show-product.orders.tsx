@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BasePropertyProps } from 'admin-bro';
-import { Box, Header } from '@admin-bro/design-system';
+import { Box, ValueGroup } from '@admin-bro/design-system';
+import styled from 'styled-components';
 import axios from 'axios';
 
 const ShowProducts: React.FC<BasePropertyProps> = (props) => {
@@ -12,6 +13,28 @@ const ShowProducts: React.FC<BasePropertyProps> = (props) => {
     resourceType: 'products',
     multiple: true,
   };
+
+  const Product = styled.div`
+    border: 1px solid #dddd;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 300px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  `;
+
+  const ProductTitle = styled.div`
+    color: #5f5f5f;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+  `;
+
+  const ProductUn = styled.label`
+    font-size: 13px;
+  `;
 
   useEffect(() => {
     (async () => {
@@ -25,11 +48,14 @@ const ShowProducts: React.FC<BasePropertyProps> = (props) => {
   }, [record]);
   return (
     <Box variant="gray">
-      <Header.H5>Listagem de Produtos:</Header.H5>
+      <ValueGroup label="Produtos do pedido" />
       <ul>
         {images.map((product) => (
           <li>
-            - <b>{product.description}</b> {product.qty}un
+            <Product>
+              <ProductTitle>{product.description}</ProductTitle>
+              <ProductUn>Quantidade: {product.qty} un</ProductUn>
+            </Product>
           </li>
         ))}
       </ul>
