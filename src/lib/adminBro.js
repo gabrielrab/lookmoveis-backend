@@ -49,6 +49,10 @@ const adminBro = new AdminBro({
       options: OrderResource.options,
     },
   ],
+  dashboard: {
+    handler: async () => {},
+    component: AdminBro.bundle('./dashboard.tsx'),
+  },
   branding: {
     companyName: adminBroConfigs.companyName,
     softwareBrothers: false,
