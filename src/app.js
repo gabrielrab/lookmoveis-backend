@@ -25,6 +25,7 @@ const corsConfig = {
 };
 
 app.use(cors(corsConfig));
+app.options('*', cors());
 
 app.use(
   morgan(
