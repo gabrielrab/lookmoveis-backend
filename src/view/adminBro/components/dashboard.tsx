@@ -186,7 +186,6 @@ const Dashboard: React.FC<BasePropertyProps> = () => {
         width={[1, 1, 1, 1024]}
       >
         {boxes.map((box, index) => (
-          // eslint-disable-next-line react/no-array-index-key
           <Box key={index} width={[1, 1 / 2, 1 / 2, 1 / 3]} p="lg">
             <Card>
               <Text textAlign="center">
