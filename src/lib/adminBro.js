@@ -51,7 +51,9 @@ const adminBro = new AdminBro({
   ],
   dashboard: {
     handler: async () => {},
-    component: AdminBro.bundle('./dashboard.tsx'),
+    component: AdminBro.bundle(
+      '../view/adminBro/components/dashboard.tsx',
+    ),
   },
   branding: {
     companyName: adminBroConfigs.companyName,

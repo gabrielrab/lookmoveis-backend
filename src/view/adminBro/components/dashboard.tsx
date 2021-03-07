@@ -4,7 +4,6 @@ import { Box, H1, H2, H5, Text } from '@admin-bro/design-system';
 import { BasePropertyProps } from 'admin-bro';
 
 import styled from 'styled-components';
-import './styles.css';
 
 const pageHeaderHeight = 284;
 const pageHeaderPaddingY = 74;
@@ -115,26 +114,29 @@ const Dashboard: React.FC<BasePropertyProps> = () => {
     {
       title: 'Produtos',
       subtitle: 'Gerencie seus produtos aqui',
-      href: 'https://adminbro.com/tutorial-passing-resources.html',
+      href:
+        'https://backend.lookmoveiscajuru.com/admin/resources/products',
       total: infos.products,
     },
     {
       title: 'Categorias',
       subtitle: 'Gerencie suas categorias aqui',
       href:
-        'https://adminbro.com/tutorial-customizing-resources.html',
+        'https://backend.lookmoveiscajuru.com/admin/resources/categories',
       total: infos.categories,
     },
     {
       title: 'Pedidos',
       subtitle: 'Gerencie seus Pedidos aqui',
-      href: 'https://adminbro.com/tutorial-actions.html',
+      href:
+        'https://backend.lookmoveiscajuru.com/admin/resources/orders',
       total: infos.orders,
     },
     {
       title: 'Clientes',
       subtitle: 'Gerencie seus Clientes',
-      href: 'https://adminbro.com/tutorial-actions.html',
+      href:
+        'https://backend.lookmoveiscajuru.com/admin/resources/clients',
       total: infos.clients,
     },
   ];
@@ -201,21 +203,6 @@ const Dashboard: React.FC<BasePropertyProps> = () => {
             </Card>
           </Box>
         ))}
-        <Box width={[1, 1, 1]} p="lg">
-          <Card
-            as="a"
-            flex
-            href="https://join.slack.com/t/adminbro/shared_invite/zt-djsqxxpz-_YCS8UMtQ9Ade6DPuLR7Zw"
-          >
-            <DivRound>
-              <img
-                src="https://lookmoveiscajuru.com/static/favilink.png"
-                alt="logo"
-              />
-              <H2>Clique aqui para visualizar seu site</H2>
-            </DivRound>
-          </Card>
-        </Box>
       </Box>
     </Box>
   );
