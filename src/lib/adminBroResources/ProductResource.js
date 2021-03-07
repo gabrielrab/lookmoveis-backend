@@ -53,6 +53,19 @@ const actions = {
       '../../view/adminBro/components/upload-image.products.tsx',
     ),
   },
+  addAttrs: {
+    actionType: ['record'],
+    label: 'Adicionar Atributos',
+    icon: 'Bag',
+    handler: async (request, response, data) => {
+      return {
+        record: data.record.toJSON(),
+      };
+    },
+    component: AdminBro.bundle(
+      '../../view/adminBro/components/create-attrs.products.tsx',
+    ),
+  },
 };
 
 const options = {

@@ -8,6 +8,7 @@ module.exports = {
     bulkDelete: 'Deletar selecionados',
     reset: 'Limpar',
     addImage: 'Adicionar Imagem',
+    addAttrs: 'Adicionar Atributos',
   },
   buttons: {
     list: 'Listagem',
