@@ -8,8 +8,12 @@ module.exports = {
     bulkDelete: 'Deletar selecionados',
     reset: 'Limpar',
     addImage: 'Adicionar Imagem',
+    list: 'Listagem',
+    navigation: 'Navegação',
+    addAttrs: 'Adicionar Atributos',
   },
   buttons: {
+    navigation: 'Navegação',
     list: 'Listagem',
     save: 'Salvar',
     filter: 'Filtrar',
@@ -19,6 +23,7 @@ module.exports = {
     applyChanges: 'Buscar',
   },
   properties: {
+    navigation: 'Navegação',
     name: 'Nome',
     clientId: 'Cliente',
     state: 'Estado',
@@ -67,8 +72,12 @@ module.exports = {
     active: 'Ativo',
     'active.true': 'Sim',
     'active.false': 'Não',
+    productId: 'Produto',
+    value: 'Valor',
+    woodTypeId: 'Acabamento',
   },
   labels: {
+    navigation: 'Navegação',
     filters: 'Filtros',
     addresses: 'Endereços',
     clients: 'Clientes',
@@ -77,5 +86,8 @@ module.exports = {
     products: 'Produtos',
     orders: 'Pedidos',
     categories: 'Categorias',
+    product_wood_types: 'Acabamentos de Produtos',
+    products_attrs: 'Atributos de Produtos',
+    list: 'Listagem',
   },
 };
