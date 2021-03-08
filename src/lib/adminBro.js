@@ -12,6 +12,7 @@ import {
   WoodTypeResource,
   UserResource,
   OrderResource,
+  ProductWoodTypesResource,
   ProductAttrsResource,
 } from './adminBroResources';
 
@@ -55,7 +56,7 @@ const adminBro = new AdminBro({
     },
     {
       resource: database.models.ProductWoodTypes,
-      // options: OrderResource.options,
+      options: ProductWoodTypesResource.options,
     },
   ],
   dashboard: {

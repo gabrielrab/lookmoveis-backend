@@ -74,6 +74,7 @@ module.exports = {
     'active.false': 'Não',
     productId: 'Produto',
     value: 'Valor',
+    woodTypeId: 'Acabamento',
   },
   labels: {
     navigation: 'Navegação',
