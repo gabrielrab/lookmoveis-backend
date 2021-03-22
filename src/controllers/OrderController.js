@@ -6,6 +6,7 @@ import {
   Products as Product,
   Clients as Client,
   Addresses as Address,
+  Roles as Role,
 } from '../models';
 import Queue from '../lib/Queue';
 
@@ -31,12 +32,16 @@ module.exports = {
   async store(req, res) {
     const transaction = await Order.sequelize.transaction();
     try {
-      const { products, ...restOrderData } = req.body;
+      const { role, products, ...restOrderData } = req.body;
 
       const [client, address] = await Promise.all([
         repository(Client).getById(req.body.clientId),
         repository(Address).getById(req.body.clientId),
       ]);
+
+      const userRole = !role
+        ? false
+        : await repository(Role).getById(role);
 
       const basketProducts = await Promise.all(
         products.map(async (product) => {
@@ -49,7 +54,11 @@ module.exports = {
             unitPrice: current.price,
             qty: product.qty,
             type: 'product',
-            total: current.price * product.qty,
+            total: !userRole
+              ? current.price * product.qty
+              : (userRole.percentage / 100) *
+                  (current.price * product.qty) +
+                current.price * product.qty,
           };
         }),
       );

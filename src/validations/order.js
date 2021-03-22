@@ -14,6 +14,7 @@ module.exports = {
       .if((value, { req }) => req.body.invoiceType === 'card')
       .withMessage(msg.isNotPaymentTerms),
     check('clientId').exists().isInt(),
+    check('role').optional().isInt(),
     check('note').optional().isString(),
     check('products').exists().isArray(),
   ],
