@@ -14,24 +14,6 @@ const properties = {
   name: {
     position: 1,
   },
-  email: {
-    position: 2,
-  },
-  password: {
-    isVisible: {
-      list: false,
-      filter: false,
-      show: false,
-      edit: false,
-    },
-  },
-  role: {
-    position: 3,
-    type: 'number',
-  },
-  clientId: {
-    isVisible: false,
-  },
   updatedAt: {
     isVisible: false,
   },
