@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
 
-class Images extends Model {
+class Roles extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -28,19 +28,6 @@ class Images extends Model {
     );
   }
 
-  static associate(models) {
-    // this.belongsTo(models.Products, {
-    //   foreignKey: 'objectId',
-    //   as: 'products',
-    // });
-    // this.belongsTo(models.WoodTypes, {
-    //   foreignKey: 'objectId',
-    //   as: 'woodTypes',
-    // });
-    // this.belongsTo(models.Categories, {
-    //   foreignKey: 'objectId',
-    //   as: 'categories',
-    // });
-  }
+  static associate(models) {}
 }
-module.exports = Images;
+module.exports = Roles;

@@ -26,8 +26,7 @@ class User extends Model {
         },
         role: {
           type: DataTypes.INTEGER,
-          defaultValue: 0,
-          allowNull: false,
+          allowNull: true,
         },
         active: {
           type: DataTypes.BOOLEAN,
@@ -74,6 +73,11 @@ class User extends Model {
     };
   }
 
-  static associate() {}
+  static associate(models) {
+    this.belongsTo(models.Roles, {
+      foreignKey: 'role',
+      as: 'userRole',
+    });
+  }
 }
 module.exports = User;

@@ -1,14 +1,24 @@
 import repository from '../factories/Repository';
 import { Users as User } from '../models';
 
+const ListingQuery = {
+  associations: [
+    {
+      association: 'userRole',
+    },
+  ],
+};
+
 module.exports = {
   async list(req, res) {
-    const data = await repository(User).list(req.query);
+    const data = await repository(User, ListingQuery).list(req.query);
     return res.send(data);
   },
 
   async getById(req, res) {
-    const data = await repository(User).getById(req.params.id);
+    const data = await repository(User, ListingQuery).getById(
+      req.params.id,
+    );
     return res.send(data);
   },
 
