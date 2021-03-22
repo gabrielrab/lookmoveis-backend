@@ -25,8 +25,8 @@ class User extends Model {
           allowNull: false,
         },
         role: {
-          type: DataTypes.ENUM(['superadmin', 'admin', 'buyer']),
-          defaultValue: 'buyer',
+          type: DataTypes.INTEGER,
+          defaultValue: 0,
           allowNull: false,
         },
         active: {
