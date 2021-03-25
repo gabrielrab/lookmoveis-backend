@@ -53,6 +53,11 @@ class User extends Model {
       const user = await super.findOne({
         where: { email },
         rejectOnEmpty: false,
+        include: [
+          {
+            association: 'userRole',
+          },
+        ],
       });
       const checkPassword =
         user !== null
