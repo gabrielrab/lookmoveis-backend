@@ -14,9 +14,3 @@ services:
       - POSTGRES_PASSWORD=${POSTGRESQL_PASS}
     volumes:
       - data:/var/lib/postgres
-
-  redis:
-    image: redis
-    container_name: redis
-    ports:
-      - '6379:6379'
