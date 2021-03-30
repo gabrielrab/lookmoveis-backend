@@ -11,9 +11,7 @@ module.exports = {
       .matches(/^\([1-9]{2}\)[9]{0,1}[6-9]{1}[0-9]{3}\-[0-9]{4}$/)
       .withMessage(msg.invalidPhoneNumber),
     check('password').exists().isString(),
-    check('role')
-      .exists()
-      .matches(/superadmin|admin|buyer/),
+    check('role').exists().isInt(),
   ],
   update: [
     check('name').optional().isString(),
@@ -23,8 +21,6 @@ module.exports = {
       .matches(/^\([1-9]{2}\)[9]{0,1}[6-9]{1}[0-9]{3}\-[0-9]{4}$/)
       .withMessage(msg.invalidPhoneNumber),
     check('password').optional().isString(),
-    check('role')
-      .optional()
-      .matches(/superadmin|admin|buyer/),
+    check('role').optional().isInt(),
   ],
 };

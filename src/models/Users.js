@@ -25,9 +25,8 @@ class User extends Model {
           allowNull: false,
         },
         role: {
-          type: DataTypes.ENUM(['superadmin', 'admin', 'buyer']),
-          defaultValue: 'buyer',
-          allowNull: false,
+          type: DataTypes.INTEGER,
+          allowNull: true,
         },
         active: {
           type: DataTypes.BOOLEAN,
@@ -54,6 +53,11 @@ class User extends Model {
       const user = await super.findOne({
         where: { email },
         rejectOnEmpty: false,
+        include: [
+          {
+            association: 'userRole',
+          },
+        ],
       });
       const checkPassword =
         user !== null
@@ -74,6 +78,11 @@ class User extends Model {
     };
   }
 
-  static associate() {}
+  static associate(models) {
+    this.belongsTo(models.Roles, {
+      foreignKey: 'role',
+      as: 'userRole',
+    });
+  }
 }
 module.exports = User;
