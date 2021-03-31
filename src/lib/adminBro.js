@@ -99,7 +99,7 @@ const adminBroAuth = AdminBroExpress.buildAuthenticatedRouter(
         email === process.env.ADMIN_BRO_EMAIL &&
         password === process.env.ADMIN_BRO_PASS
       ) {
-        return { email: 'look@look.com', name: 'Look Admin' };
+        return { email: 'lookmoveis@admin.com', name: 'Look Admin' };
       }
       return false;
     },
