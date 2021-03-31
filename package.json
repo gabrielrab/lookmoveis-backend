@@ -12,7 +12,8 @@
     "migration:build": "yarn sequelize db:migrate",
     "lint": "yarn eslint --fix .",
     "app": "npm-run-all -p app:*",
-    "app:server": "sucrase-node ./bin/server.js"
+    "app:server": "sucrase-node ./bin/server.js",
+    "app:queue": "nodemon src/queue.js"
   },
   "husky": {
     "hooks": {
@@ -29,6 +30,7 @@
     "body-parser": "^1.19.0",
     "bull": "@3.12.1",
     "bull-board": "^1.2.0",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
