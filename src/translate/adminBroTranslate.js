@@ -85,6 +85,7 @@ module.exports = {
     categories: 'Categorias',
     product_wood_types: 'Acabamentos de Produtos',
     products_attrs: 'Atributos de Produtos',
+    roles: 'Tipo de Usuário',
     list: 'Listagem',
   },
 };
