@@ -1,4 +1,5 @@
 import express from 'express';
+import session from 'express-session';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
@@ -8,7 +9,7 @@ import path from 'path';
 import routes from './router';
 import Queue from './lib/Queue';
 import { errorHandler } from './middlewares';
-import adminBroRouter from './lib/adminBro';
+import { adminBroRouter, adminBroAuth } from './lib/adminBro';
 import adminBroConfig from './config/adminBro';
 import 'dotenv/config';
 
@@ -24,6 +25,14 @@ const corsConfig = {
   optionsSuccessStatus: 204,
 };
 
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+  }),
+);
+
 app.use(cors(corsConfig));
 app.options('*', cors());
 
@@ -36,9 +45,10 @@ app.use(
 require('./database');
 
 app.use(express.json({ limit: '100mb' }));
+app.use(adminBroConfig.url, adminBroAuth);
+
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
-app.use(adminBroConfig.url, adminBroRouter);
 
 app.use(
   '/static',

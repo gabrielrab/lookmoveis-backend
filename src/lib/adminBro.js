@@ -4,6 +4,7 @@ import AdminBroSequelize from '@admin-bro/sequelize';
 import adminBroConfigs from '../config/adminBro';
 import database from '../database';
 import { adminBroTranslate } from '../translate';
+
 import {
   AddressResource,
   ClientResource,
@@ -16,6 +17,8 @@ import {
   ProductAttrsResource,
   RoleResource,
 } from './adminBroResources';
+
+require('dotenv/config');
 
 AdminBro.registerAdapter(AdminBroSequelize);
 
@@ -88,4 +91,20 @@ const adminBro = new AdminBro({
 });
 const adminBroRouter = AdminBroExpress.buildRouter(adminBro);
 
-export default adminBroRouter;
+const adminBroAuth = AdminBroExpress.buildAuthenticatedRouter(
+  adminBro,
+  {
+    authenticate: async (email, password) => {
+      if (
+        email === process.env.ADMIN_BRO_EMAIL &&
+        password === process.env.ADMIN_BRO_PASS
+      ) {
+        return { email: 'look@look.com', name: 'Look Admin' };
+      }
+      return false;
+    },
+    cookiePassword: 'secret',
+  },
+);
+
+module.exports = { adminBroRouter, adminBroAuth };
