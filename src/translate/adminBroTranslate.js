@@ -20,7 +20,14 @@ module.exports = {
     reset: 'Limpar',
     filters: 'Filtros',
     apply: 'Salvar',
-    applyChanges: 'Buscar',
+    addNewItem: 'Adicionar novo',
+    applyChanges: 'Aplicar',
+    resetFilter: 'Restaurar',
+    confirmRemovalMany: 'Confirma que deseja remover {{count}} itens',
+    confirmRemovalMany_plural:
+      'Confirma que deseja remover {{count}} itens',
+    logout: 'Sair',
+    createFirstRecord: 'Crie seu primeiro',
   },
   properties: {
     navigation: 'Navegação',
@@ -72,6 +79,8 @@ module.exports = {
     productId: 'Produto',
     value: 'Valor',
     woodTypeId: 'Acabamento',
+    welcome: 'Bem vindo',
+    password: 'Senha',
   },
   labels: {
     navigation: 'Navegação',
@@ -87,5 +96,26 @@ module.exports = {
     products_attrs: 'Atributos de Produtos',
     roles: 'Tipo de Usuário',
     list: 'Listagem',
+    loginWelcome: 'Look Móveis',
+    pages: 'Páginas',
+    selectedRecords: 'Selecionados ({{selected}})',
+  },
+  messages: {
+    noRecords: 'Nenhum item',
+    loginWelcome:
+      'Painel Administrativo Look Móveis. Acesso restrito.',
+    noRecordsInResource: 'Não há registros neste recurso',
+    invalidCredentials: 'Credenciais inválidas, tente novamente',
+    confirmDelete: 'Você realmente deseja remover esse item?',
+    successfullyCreated: 'Registro criado com sucesso',
+    successfullyUpdated: 'Registro atualizado com sucesso',
+    successfullyDeleted: 'Registro removido com sucesso',
+    successfullyBulkDeleted: 'Sucesso ao remover {{count}} items',
+    successfullyBulkDeleted_plural:
+      'Sucesso ao remover {{count}} items',
+    noRecordsSelected: 'Você não selecionou nenhum recurso',
+    error404Resource: 'Não encontrado',
+    error404Action: 'Não encontrado',
+    error404Record: 'Não encontrado',
   },
 };
