@@ -81,6 +81,7 @@ module.exports = {
     woodTypeId: 'Acabamento',
     welcome: 'Bem vindo',
     password: 'Senha',
+    percentage: 'Porcentagem',
   },
   labels: {
     navigation: 'Navegação',
