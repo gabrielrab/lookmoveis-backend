@@ -85,7 +85,7 @@ const adminBro = new AdminBro({
       buttons: adminBroTranslate.buttons,
       properties: adminBroTranslate.properties,
       labels: adminBroTranslate.labels,
-      messages: adminBroTranslate.labels,
+      messages: adminBroTranslate.messages,
     },
   },
 });
