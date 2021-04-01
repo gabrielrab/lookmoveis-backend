@@ -57,7 +57,7 @@ module.exports = {
             total: !userRole
               ? current.price * product.qty
               : (userRole.percentage / 100) *
-                  (current.price * product.qty) +
+                  (current.price * product.qty) -
                 current.price * product.qty,
           };
         }),
