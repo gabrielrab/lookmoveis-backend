@@ -16,7 +16,9 @@ module.exports = {
     const data = await repository(Categories, ListingQuery).list(
       req.query,
     );
-    return res.send(data);
+    return res.send(
+      data.sort((a, b) => a.name.localeCompare(b.name)),
+    );
   },
 
   async getById(req, res) {
