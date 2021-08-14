@@ -16,6 +16,7 @@ const ListingQuery = {
       where: { type: 'product-decorated' },
       required: false,
     },
+    { association: 'variations' },
   ],
 };
 
