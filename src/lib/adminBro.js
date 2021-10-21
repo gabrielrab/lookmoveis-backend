@@ -16,6 +16,7 @@ import {
   ProductWoodTypesResource,
   ProductAttrsResource,
   RoleResource,
+  ProductVariationResource,
 } from './adminBroResources';
 
 require('dotenv/config');
@@ -65,6 +66,10 @@ const adminBro = new AdminBro({
     {
       resource: database.models.Roles,
       options: RoleResource.options,
+    },
+    {
+      resource: database.models.ProductVariations,
+      options: ProductVariationResource.options,
     },
   ],
   dashboard: {

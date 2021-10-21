@@ -10,7 +10,7 @@ import path from 'path';
 import routes from './router';
 import Queue from './lib/Queue';
 import { errorHandler } from './middlewares';
-import { adminBroRouter, adminBroAuth } from './lib/adminBro';
+import { adminBroAuth } from './lib/adminBro';
 import adminBroConfig from './config/adminBro';
 import 'dotenv/config';
 

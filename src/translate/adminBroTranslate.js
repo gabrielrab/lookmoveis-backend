@@ -11,6 +11,7 @@ module.exports = {
     list: 'Listagem',
     navigation: 'Navegação',
     addAttrs: 'Adicionar Atributos',
+    addPrice: 'Adicionar preço',
   },
   buttons: {
     navigation: 'Navegação',
@@ -95,6 +96,7 @@ module.exports = {
     categories: 'Categorias',
     product_wood_types: 'Acabamentos de Produtos',
     products_attrs: 'Atributos de Produtos',
+    product_variations: 'Preço de Produtos',
     roles: 'Tipo de Usuário',
     list: 'Listagem',
     loginWelcome: 'Look Móveis',
