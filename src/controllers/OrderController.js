@@ -48,9 +48,10 @@ module.exports = {
           const current = await repository(Product).getById(
             product.id,
           );
+          // adicionar aqui as variações
           return {
             name: current.name,
-            description: `${current.name}`,
+            description: `${current.name}`, // incrementar com a variação
             unitPrice: current.price,
             qty: product.qty,
             type: 'product',
