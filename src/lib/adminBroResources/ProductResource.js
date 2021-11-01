@@ -26,6 +26,15 @@ const properties = {
   name: {
     position: 1,
   },
+  variation: {
+    position: 4,
+    type: 'string',
+    components: {
+      show: AdminBro.bundle(
+        '../../view/adminBro/components/show-prices.products.tsx',
+      ),
+    },
+  },
   categoryId: {
     type: 'string',
   },
@@ -43,7 +52,7 @@ const actions = {
   addImage: {
     actionType: ['record'],
     label: 'Adicionar Produto',
-    icon: 'Bag',
+    icon: 'View',
     handler: async (request, response, data) => {
       return {
         record: data.record.toJSON(),
