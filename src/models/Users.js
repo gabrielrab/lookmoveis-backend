@@ -30,7 +30,7 @@ class User extends Model {
         },
         active: {
           type: DataTypes.BOOLEAN,
-          defaultValue: true,
+          defaultValue: false,
         },
         clientId: {
           type: DataTypes.INTEGER,
