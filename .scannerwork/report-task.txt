@@ -1,0 +1,6 @@
+projectKey=lookmoveis-backend
+serverUrl=http://localhost:9000
+serverVersion=10.0.0.68432
+dashboardUrl=http://localhost:9000/dashboard?id=lookmoveis-backend
+ceTaskId=AYfyi-BCCSbhmFaFbi6b
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYfyi-BCCSbhmFaFbi6b
