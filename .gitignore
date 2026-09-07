@@ -1,5 +1,6 @@
 node_modules
 *.lock
+!yarn.lock
 .env
 .DS_Store
 src/uploads/*
