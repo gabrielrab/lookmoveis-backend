@@ -80,16 +80,16 @@ const Dashboard: React.FC<BasePropertyProps> = () => {
         categories,
         orders,
       ] = await Promise.all([
-        axios.get('https://backend.lookmoveiscajuru.com/products', {
+        axios.get('https://api.lookmoveiscajuru.com/products', {
           headers: config,
         }),
-        axios.get('https://backend.lookmoveiscajuru.com/clients', {
+        axios.get('https://api.lookmoveiscajuru.com/clients', {
           headers: config,
         }),
-        axios.get('https://backend.lookmoveiscajuru.com/categories', {
+        axios.get('https://api.lookmoveiscajuru.com/categories', {
           headers: config,
         }),
-        axios.get('https://backend.lookmoveiscajuru.com/order', {
+        axios.get('https://api.lookmoveiscajuru.com/order', {
           headers: config,
         }),
       ]);
@@ -115,28 +115,27 @@ const Dashboard: React.FC<BasePropertyProps> = () => {
       title: 'Produtos',
       subtitle: 'Gerencie seus produtos aqui',
       href:
-        'https://backend.lookmoveiscajuru.com/admin/resources/products',
+        'https://api.lookmoveiscajuru.com/admin/resources/products',
       total: infos.products,
     },
     {
       title: 'Categorias',
       subtitle: 'Gerencie suas categorias aqui',
       href:
-        'https://backend.lookmoveiscajuru.com/admin/resources/categories',
+        'https://api.lookmoveiscajuru.com/admin/resources/categories',
       total: infos.categories,
     },
     {
       title: 'Pedidos',
       subtitle: 'Gerencie seus Pedidos aqui',
-      href:
-        'https://backend.lookmoveiscajuru.com/admin/resources/orders',
+      href: 'https://api.lookmoveiscajuru.com/admin/resources/orders',
       total: infos.orders,
     },
     {
       title: 'Clientes',
       subtitle: 'Gerencie seus Clientes',
       href:
-        'https://backend.lookmoveiscajuru.com/admin/resources/clients',
+        'https://api.lookmoveiscajuru.com/admin/resources/clients',
       total: infos.clients,
     },
   ];
