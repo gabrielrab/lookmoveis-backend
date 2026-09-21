@@ -94,8 +94,6 @@ const adminBro = new AdminBro({
     },
   },
 });
-const adminBroRouter = AdminBroExpress.buildRouter(adminBro);
-
 const adminBroAuth = AdminBroExpress.buildAuthenticatedRouter(
   adminBro,
   {
@@ -108,8 +106,10 @@ const adminBroAuth = AdminBroExpress.buildAuthenticatedRouter(
       }
       return false;
     },
-    cookiePassword: 'secret',
+    cookiePassword:
+      process.env.ADMIN_BRO_COOKIE_SECRET ||
+      'change-me-in-production',
   },
 );
 
-module.exports = { adminBroRouter, adminBroAuth };
+module.exports = { adminBroAuth };

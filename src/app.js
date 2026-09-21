@@ -1,6 +1,5 @@
 import express from 'express';
 import compression from 'compression';
-import session from 'express-session';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
@@ -27,14 +26,6 @@ const corsConfig = {
   optionsSuccessStatus: 204,
 };
 
-app.use(
-  session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true,
-  }),
-);
-
 app.use(cors(corsConfig));
 app.options('*', cors());
 
@@ -57,7 +48,12 @@ app.use(
   express.static(path.resolve(__dirname, 'uploads')),
 );
 
-app.use('/ui', UI);
+if (
+  process.env.ENV !== 'production' ||
+  process.env.ENABLE_QUEUE_UI === 'true'
+) {
+  app.use('/ui', UI);
+}
 app.use('/', routes);
 app.use(errorHandler);
 
